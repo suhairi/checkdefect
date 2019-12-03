@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -11,8 +13,24 @@ class ProfileController extends Controller
     	return view('users.profile');
     }
 
+    public function edit(Request $request) {
+
+    	$profile = User::find(Auth::user()->id);
+
+    	return view('users.edit', compact('profile'));
+    }
+
     public function update(Request $request) {
 
-    	return view('users.edit');
+    	$profile = User::find(Auth::user()->id);
+
+    	$profile->address = $request->address;
+    	$profile->phone = $request->phone;
+    	$profile->save();
+
+
+
+    	return redirect('users/profile');
+
     }
 }

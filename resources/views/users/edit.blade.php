@@ -13,6 +13,12 @@
   <!-- Content Row -->
   <div class="row">
   	<div class="col-sm-5">
+
+  		@include('layouts._ifError')
+      	@include('layouts._ifSuccess')
+
+      	<form class="user" method="post" action="{{ route('update') }}">
+  		@csrf
   		<table class="table table-striped table-bordered table-hover">
   			<tr>
   				<th>Nama</th>
@@ -24,11 +30,11 @@
   			</tr>
   			<tr>
   				<th>Alamat Surat Menyurat</th>
-  				<td><textarea name="address" class="form-control"></textarea></td>
+  				<td><textarea name="address" class="form-control">{{ $profile->address }}</textarea></td>
   			</tr>
   			<tr>
   				<th>Telefon Bimbit</th>
-  				<td><input type="text" name="phone" class="form-control" /></td>
+  				<td><input type="text" name="phone" class="form-control" value="{{ $profile->phone }}" /></td>
   			</tr>
   			<tr>
   				<td colspan="2" align="right">
@@ -36,6 +42,8 @@
   				</td>
   			</tr>		
   		</table>
+  		</form>
+
   	</div>
 
 
