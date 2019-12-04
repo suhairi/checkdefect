@@ -52,7 +52,6 @@ class HouseController extends Controller
     	return redirect()->route('house');
     }
 
-
     public function destroy($id) {
 
     	$house = House::findOrFail($id);
