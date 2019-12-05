@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\House;
 use Auth;
 use Validator;
+use App\Type;
 
 class HouseController extends Controller
 {
@@ -19,7 +21,10 @@ class HouseController extends Controller
     }
 
     public function create() {
-    	return view('house.create');
+
+        $type = Type::pluck('name', 'id');
+
+    	return view('house.create', compact('type'));
     }
 
     public function store(Request $request) {

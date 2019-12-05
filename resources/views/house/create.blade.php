@@ -6,7 +6,7 @@
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Daftar/Rekod Rumah</h1>
+    <h1 class="h4 mb-0 text-gray-800">Daftar/Rekod Rumah</h1>
     <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
   </div>
 
@@ -17,28 +17,34 @@
       @include('layouts._ifError')
       @include('layouts._ifSuccess')
 
-      <form method="POST" action="{{ route('house.store') }}">
-      @csrf
+      {!! Form::open(['route' => 'house.store', 'method' => 'POST']) !!}
+
   		<table class="table table-striped table-bordered">
         <tr>
   				<th>Nama</th>
-          <td><input name="name" value="{{ old('name') }}" class="form-control" required="" autofocus="" placeholder="Sila berikan nama kepada rumah ini" /></td>
+          <td>{!! Form::text('name', old('name'), ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Sila berikan nama kepada rumah ini']) !!}</td>
         </tr>
         <tr>
           <th>Alamat</th>
-          <td><textarea name="address" class="form-control" required="" placeholder="Alamat Rumah">{{ old('address') }}</textarea></td>
+          <td>{!! Form::textarea('address', old('address'), ['class' => 'form-control', 'required', 'placeholder' => 'Alamat Rumah Aduan', 'rows' => '4']) !!}</td>          
         </tr>
         <tr>
+          <th>Jenis Rumah</th>
+          <td>{!! Form::select('type', $type, null, ['placeholder' => 'Pilih Jenis Rumah', 'class' => 'form-control']) !!}</td>
+        </tr>
+        
+        <tr>
   				<th>Nama Pemaju</th>
-          <td><input name="dev_name" value="{{ old('dev_name') }}" class="form-control" required type="text" placeholder="Nama Pemaju" /></td>
+          <td>{!! Form::text('dev_name', old('dev_name'), ['class' => 'form-control', 'required', 'placeholder' => 'Nama Pemaju']) !!}</td>
+          
         </tr>
         <tr>
   				<th>Alamat Pemaju</th>
-          <td><textarea name="dev_address" class="form-control" required placeholder="Alamat Pemaju">{{ old('dev_address') }}</textarea></td>
+          <td>{!! Form::textarea('dev_address', old('dev_address'), ['class' => 'form-control', 'required', 'placeholder' => 'Alamat Pemaju', 'rows' => '4']) !!}</td>
         </tr>
         <tr>
   				<th>No Telefon Pemaju </th>
-          <td><input name="dev_phone" value="{{ old('dev_phone') }}" class="form-control" required type="text" placeholder="Contoh: 047728888" /></td>
+          <td>{!! Form::text('dev_phone', old('dev_phone'), ['class' => 'form-control', 'required', 'placeholder' => 'Contoh: 047728888']) !!}</td>
         </tr>
         <tr>
           <td colspan="2" align="right"><a href="#"><button class="btn btn-primary">Rekod Rumah</button></a></td>
@@ -46,7 +52,7 @@
         <tr>
   			</tr>
       </table>
-      </form>
+      {!! Form::close() !!}
       
     </div>
   </div>

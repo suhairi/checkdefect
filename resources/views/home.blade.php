@@ -40,12 +40,12 @@
 
             <!-- if profile incomplete -->
             <div class="text-danger font-weight-bold">Sila kemaskini data 'profil' anda.</div>
-            <div class="text-secondary">Profil -> Profil -> Kemaskini Profil</div>
+            <div class="text-secondary">Kemaskini Profil di <a href="{{ route('edit', Auth::user()->id) }}">sini</a></div>
             <br />
             
             <!-- if complaint house incomplete -->
-            <div class="text-danger font-weight-bold">Sila kemaskini data 'rumah aduan' anda.</div>
-            <div class="text-secondary">Profil -> Rumah Aduan -> Kemaskini Rumah</div>
+            <div class="text-danger font-weight-bold">Tiada maklumat 'Rumah Aduan'.</div>
+            <div class="text-secondary">Daftar/Rekod 'Rumah Aduan' di <a href="">sini</a></div>
           </div>
         </div>
 

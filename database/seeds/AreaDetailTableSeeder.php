@@ -273,7 +273,7 @@ class AreaDetailTableSeeder extends Seeder
 	        	'area_id'	=> $i,
 	        	'name'		=> strtoupper('halaman/tanah')
 	        ]);
-	    }        
+	    }
 
         
     
