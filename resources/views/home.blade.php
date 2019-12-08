@@ -45,7 +45,7 @@
             
             <!-- if complaint house incomplete -->
             <div class="text-danger font-weight-bold">Tiada maklumat 'Rumah Aduan'.</div>
-            <div class="text-secondary">Daftar/Rekod 'Rumah Aduan' di <a href="">sini</a></div>
+            <div class="text-secondary">Daftar/Rekod 'Rumah Aduan' di <a href="{{ route('house') }}">sini</a></div>
           </div>
         </div>
 

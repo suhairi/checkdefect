@@ -8,6 +8,8 @@ use App\House;
 use Auth;
 use Validator;
 use App\Type;
+use App\TypeDetail;
+use Log;
 
 class HouseController extends Controller
 {
@@ -22,10 +24,17 @@ class HouseController extends Controller
 
     public function create() {
 
-        $type = Type::pluck('name', 'id');
+        $types = Type::all('name', 'id');
 
-    	return view('house.create', compact('type'));
+    	return view('house.create', compact('types'));
     }
+
+    public function get_by_type($id) {
+
+        $details = TypeDetail::where('type_id', $id)->pluck('name', 'id');
+        return json_encode($details);
+    }
+
 
     public function store(Request $request) {
 

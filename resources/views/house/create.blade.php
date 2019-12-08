@@ -26,13 +26,25 @@
         </tr>
         <tr>
           <th>Alamat</th>
-          <td>{!! Form::textarea('address', old('address'), ['class' => 'form-control', 'required', 'placeholder' => 'Alamat Rumah Aduan', 'rows' => '4']) !!}</td>          
+          <td>{!! Form::textarea('address', old('address'), ['id' => 'type', 'class' => 'form-control', 'required', 'placeholder' => 'Alamat Rumah Aduan', 'rows' => '4']) !!}</td>          
         </tr>
         <tr>
           <th>Jenis Rumah</th>
-          <td>{!! Form::select('type', $type, null, ['placeholder' => 'Pilih Jenis Rumah', 'class' => 'form-control']) !!}</td>
+          <td>
+              <select name="type" class="form-control" data-dependent="type_detail">
+                <option value=''>Pilih Jenis Rumah</option>
+                @foreach($types as $type)
+                  <option value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+              </select> 
         </tr>
-        
+        <tr>
+          <th>Detail Jenis Rumah</th>
+          <td>
+            <select name="type_detail" class="form-control dynamic" id="type_details">
+              <option value=''>Pilih Detail Jenis Rumah</option>
+            </select>
+        </tr>
         <tr>
   				<th>Nama Pemaju</th>
           <td>{!! Form::text('dev_name', old('dev_name'), ['class' => 'form-control', 'required', 'placeholder' => 'Nama Pemaju']) !!}</td>
@@ -56,5 +68,35 @@
       
     </div>
   </div>
+
+  <script type="text/javascript">
+      $(document).ready(function() {
+
+          $('select[name="type"]').change(function() {
+
+            var value = $(this).val();
+            var url = "{{ route('house.get_by_type', ':value') }}"
+            url = url.replace(':value', value);
+            if($(this).val() != '') {
+          
+              $.ajax({
+                url:url,
+                type:"GET",
+                dataType:"json",
+                success:function(data) {
+                  console.log(data);
+                  $.each(data, function(key, value){
+                    $('select[name="type_detail"').append('<option value="'+ key +'">'+ value +'</option>');
+                  });
+                }
+              })
+
+            } else {
+              $('select[name="type_detail"]').empty();
+            }
+          });
+
+      });
+  </script>
 
 @endsection
