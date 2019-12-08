@@ -49,7 +49,7 @@ class AreaDetailTableSeeder extends Seeder
         for($i=15; $i<=18; $i++) {
 	        DB::table('area_detail')->insert([
 	        	'area_id'	=> '15',
-	        	'name'		=> strtoupper('longkang keliling (peimeter drain)')
+	        	'name'		=> strtoupper('longkang keliling (perimeter drain)')
 	        ]);
 	    }
 
