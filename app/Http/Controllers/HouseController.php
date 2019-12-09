@@ -10,6 +10,8 @@ use Validator;
 use App\Type;
 use App\TypeDetail;
 use Session;
+use App\Area;
+use App\AreaDetail;
 
 
 class HouseController extends Controller
@@ -18,7 +20,7 @@ class HouseController extends Controller
 
     public function index() {
 
-    	$houses = House::where('id', Auth::user()->id)->get();
+    	$houses = House::where('user_id', Auth::user()->id)->get();
 
     	return view('house.index', compact('houses'));
     }
@@ -49,9 +51,7 @@ class HouseController extends Controller
     	$validation = Validator::make($request->all(), [
     		'name' 			=> 'required|min:3|max:30',
     		'address'		=> 'required|min:10',
-    		'dev_name'		=> 'required|min:3',
-    		'dev_address'	=> 'required|min:10',
-    		'dev_phone'		=> 'required|numeric|min:9'
+    		'dev_name'		=> 'required|min:3'
     	]);
 
         // return $request->all();
@@ -87,16 +87,25 @@ class HouseController extends Controller
     	return redirect()->route('house');
     }
 
+    public function edit($id) {
+
+        $house = House::findOrFail($id);
+        $types = Type::all('name', 'id');
+
+        return view('house.edit', compact('house', 'types'));
+    }
+
     public function complaint() {
 
         $houses = House::where('user_id', Auth::user()->id)->pluck('name', 'id');
+        $areas  = Area::pluck('name', 'id');
 
         if(sizeof($houses) <= 0) {
             Session::flash('failed', 'Tiada maklumat rumah aduan. Sila rekod/kemaskini');
             return redirect('home');
         }
 
-        return view('house.complaint', compact('houses'));
+        return view('house.complaint', compact('houses', 'areas'));
     }
 
     public function get_house_info(Request $request) {
@@ -112,6 +121,18 @@ class HouseController extends Controller
         $output .= "</table>";
         $output .= "</div>";
 
+        return $output;
+    }
+
+    public function get_area_detail(Request $request) {
+
+        $area_details = AreaDetail::where('area_id', $request->id)->get();
+
+        $output = '';
+
+        foreach($area_details as $details) {
+            
+        }
 
 
         return $output;

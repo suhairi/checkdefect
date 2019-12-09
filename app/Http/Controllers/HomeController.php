@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+use Auth;
+use App\House;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $profile    = User::findOrFail(Auth::user()->id);
+        $house      = House::where('user_id', Auth::user()->id)->first();
+
+        if(empty($profile->address) || empty($profile->phone))
+            $profile = '';
+
+        return view('home', compact('profile', 'house'));
     }
 }

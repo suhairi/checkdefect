@@ -26,28 +26,16 @@
           <td>{!! Form::select('name', $houses, null, ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Pilih', 'id' => 'house']) !!}</td>
         </tr>
         <tr>
-          <th>Alamat</th>
-          <td>{!! Form::textarea('address', old('address'), ['id' => 'type', 'class' => 'form-control', 'required', 'placeholder' => 'Alamat Rumah Aduan', 'rows' => '4']) !!}</td>          
+    			<th>Ruang</th>
+          <td>{!! Form::select('area_id', $areas, old('area'),['class' => 'form-control', 'required', 'placeholder' => 'Nama Pemaju', 'id' => 'area']) !!}</td>          
         </tr>
         <tr>
-          <th>Jenis Rumah</th>
+          <th>Ruang Detail</th>
           <td>
-              <select name="type" id="type" class="form-control">
-                <option value=''>Pilih Jenis Rumah</option>
-              </select> 
+            <select name="area_detail_id" class="form-control"><option value="">Pilih</option></select>
+          </td>          
         </tr>
-        <tr>
-          <th>Detail Jenis Rumah</th>
-          <td>
-            <select name="type_detail" class="form-control dynamic" id="type_details">
-              <option value=''>Pilih Detail Jenis Rumah</option>
-            </select>
-        </tr>
-        <tr>
-  				<th>Nama Pemaju</th>
-          <td>{!! Form::text('dev_name', old('dev_name'), ['class' => 'form-control', 'required', 'placeholder' => 'Nama Pemaju']) !!}</td>
-          
-        </tr>
+        
         <tr>
   				<th>Alamat Pemaju</th>
           <td>{!! Form::textarea('dev_address', old('dev_address'), ['class' => 'form-control', 'required', 'placeholder' => 'Alamat Pemaju', 'rows' => '4']) !!}</td>
@@ -93,6 +81,23 @@
               })
 
             $('#info').show();
+          });
+
+          $('#area').change(function() {
+
+            var id = $(this).val();
+            var _token = $("input[name='_token']").val();
+            alert(id + ' ' + _token);
+
+            $.ajax({
+                url:"{{ route('house.get_area_detail') }}",
+                method:"POST",
+                data:{id:id, _token:_token},
+                success:function(data) {
+                  console.log(data);
+                  $('#info').html(data);                  
+                }
+              })
           });
        
 
