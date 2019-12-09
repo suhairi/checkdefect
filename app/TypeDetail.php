@@ -14,9 +14,16 @@ class TypeDetail extends Model
 
     public $timestamps 		= false;
 
+    public function setNameAttribute($value) {
+        $this->attributes['name'] = ucwords($value);
+    }
+
+    public function setDescriptionAttribute($value) {
+        $this->attributes['description'] = ucwords($value);
+    }
 
     public function type() {
-    	return $this.belongsTo('app\Type');
+    	return $this->belongsTo('App\Type');
     }
 
     

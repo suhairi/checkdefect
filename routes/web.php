@@ -30,13 +30,18 @@ Route::group(['prefix' => 'users'], function() {
 	// House
 	Route::get('/house', 'HouseController@index')->name('house');
 
-	// House Create Form
 	Route::get('/house/create', 'HouseController@create')->name('house.create');
-	Route::get('house/get_by_type/{id}', 'HouseController@get_by_type')->name('house.get_by_type');
+	Route::post('house/get_by_type', 'HouseController@get_by_type')->name('house.get_by_type');
 
 	Route::post('/house/store', 'HouseController@store')->name('house.store');
 	Route::delete('/house/destroy/{id}', 'HouseController@destroy')->name('house.destroy');
 	Route::get('/house/edit/{id}', 'HouseController@edit')->name('house.edit');
+
+
+	// Complaint
+	Route::get('/house/complaint', 'HouseController@complaint')->name('house.complaint');
+	Route::post('house/complaint/store', 'HouseController@complaint_store')->name('house.complaint.store');
+	Route::post('house/complaint/get_house_info', 'HouseController@get_house_info')->name('house.get_house_info');
 
 
 });

@@ -35,7 +35,15 @@ class House extends Model
     }
 
     public function user() {
-    	return $this.belongsTo('App\User');
+    	return $this->belongsTo('App\User', 'id', 'user_id');
+    }
+
+    public function type() {
+        return $this->hasOne('App\Type', 'id', 'type_id');
+    }
+
+    public function type_detail() {
+        return $this->hasOne('App\TypeDetail', 'id', 'type_detail_id');
     }
 
 
