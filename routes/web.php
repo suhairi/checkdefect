@@ -40,8 +40,8 @@ Route::group(['prefix' => 'users'], function() {
 
 
 	// Complaint
-	Route::get('/complaint', 'ComplaintController@complaint')->name('house.complaint');
-	Route::post('/complaint/store', 'ComplaintController@store')->name('house.complaint.store');
+	Route::get('/complaint', 'ComplaintController@complaint')->name('complaint');
+	Route::post('/complaint/store', 'ComplaintController@store')->name('complaint.store');
 	Route::post('/complaint/get_house_info', 'ComplaintController@get_house_info')->name('house.get_house_info');
 	Route::post('/complaint/get_area_detail', 'ComplaintController@get_area_detail')->name('house.get_area_detail');
 

@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TypeTableSeeder::class);
         $this->call(TypeDetailTableSeeder::class);
         $this->call(AreaDetailTableSeeder::class);
+        $this->call(DefectTableSeeder::class);
     }
 }

@@ -18,7 +18,7 @@
       @include('layouts._ifSuccess')
       @include('layouts._ifFailed')
 
-      {!! Form::open(['route' => 'house.complaint.store', 'method' => 'POST']) !!}
+      {!! Form::open(['route' => 'complaint.store', 'method' => 'POST']) !!}
 
   		<table class="table table-striped table-bordered">
         <tr>
@@ -27,25 +27,25 @@
         </tr>
         <tr>
     			<th>Ruang</th>
-          <td>{!! Form::select('area_id', $areas, old('area'),['class' => 'form-control', 'required', 'placeholder' => 'Nama Pemaju', 'id' => 'area']) !!}</td>          
+          <td>{!! Form::select('area_id', $areas, old('area'),['class' => 'form-control', 'required', 'placeholder' => 'Ruang', 'id' => 'area']) !!}</td>          
         </tr>
         <tr>
-          <th>Ruang Detail</th>
+          <th>Detail Ruang</th>
           <td>
-            <select name="area_detail_id" class="form-control"><option value="">Pilih</option></select>
+            <select name="area_detail_id" class="form-control" id="area_detail"><option value="">Pilih Detail Ruang</option></select>
           </td>          
+        </tr>
+        <tr>
+          <th>Kerosakan (Ringkas) </th>
+          <td>{{ Form::text('defect', old('defect'), ['class' => 'form-control', 'placeholder' => 'Contoh: Rosak, Condong, Tiada Cat, Merekah']) }}</td>          
+        </tr>
+        <tr>
+          <th>Deskripsi / Nota Tambahan</th>
+          <td>{{ Form::textarea('description', old('description'), ['class' => 'form-control', 'rows' => '4']) }}</td>
         </tr>
         
         <tr>
-  				<th>Alamat Pemaju</th>
-          <td>{!! Form::textarea('dev_address', old('dev_address'), ['class' => 'form-control', 'required', 'placeholder' => 'Alamat Pemaju', 'rows' => '4']) !!}</td>
-        </tr>
-        <tr>
-  				<th>No Telefon Pemaju </th>
-          <td>{!! Form::text('dev_phone', old('dev_phone'), ['class' => 'form-control', 'required', 'placeholder' => 'Contoh: 047728888']) !!}</td>
-        </tr>
-        <tr>
-          <td colspan="2" align="right"><a href="#"><button class="btn btn-primary">Rekod Rumah</button></a></td>
+          <td colspan="2" align="right"><a href="#"><button class="btn btn-primary">Rekod Aduan</button></a></td>
         </tr>
         <tr>
   			</tr>
@@ -53,9 +53,10 @@
       {!! Form::close() !!}
       
     </div>
-    <div class="col-sm-6 card" id="info" style="padding-top: 5px">
-      
-    </div>
+    <div class="col-sm-6 card" id="info" style="padding-top: 5px">here</div>
+    <div class="col-sm-6 card" style="padding-top: 5px">here</div>
+
+
   </div>
 
 
@@ -87,7 +88,6 @@
 
             var id = $(this).val();
             var _token = $("input[name='_token']").val();
-            alert(id + ' ' + _token);
 
             $.ajax({
                 url:"{{ route('house.get_area_detail') }}",
@@ -95,7 +95,7 @@
                 data:{id:id, _token:_token},
                 success:function(data) {
                   console.log(data);
-                  $('#info').html(data);                  
+                  $('#area_detail').html(data);                  
                 }
               })
           });

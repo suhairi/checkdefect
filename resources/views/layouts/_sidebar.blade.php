@@ -52,7 +52,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Choose One:</h6>
             <a class="collapse-item" href="#">Senarai Aduan</a>
-            <a class="collapse-item" href="{{ route('house.complaint') }}">Buat Aduan</a>
+            <a class="collapse-item" href="{{ route('complaint') }}">Buat Aduan</a>
             <hr />
             <a class="collapse-item" href="#">New Inventory</a>
             <a class="collapse-item" href="#">Search Inventory</a>

@@ -4,6 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+use Session;
+
+use App\House;
+use App\Area;
+use App\AreaDetail;
+use App\Type;
+use App\TypeDetail;
+
 class ComplaintController extends Controller
 {
     public function complaint() {
@@ -23,6 +32,8 @@ class ComplaintController extends Controller
 
         $house = House::where('id', $request->id)->first();
 
+        // return $house->type->name;
+
         $output  = "<div class='card'>";
         $output .= "<div class='card-header'><h4>Maklumat Rumah Aduan</h4></div>";
         $output .= "<table class='table table-bordered'>";
@@ -39,10 +50,10 @@ class ComplaintController extends Controller
 
         $area_details = AreaDetail::where('area_id', $request->id)->get();
 
-        $output = '';
+        $output = "<option value=''>Detail Ruang...</option>";
 
         foreach($area_details as $details) {
-            
+            $output .= "<option value='". $details->id ."'>". $details->name ."</option>";
         }
 
 
@@ -51,7 +62,7 @@ class ComplaintController extends Controller
 
     public function store(Request $request) {
 
-    	return $request;
+    	return $request->all();
     }
 
 
