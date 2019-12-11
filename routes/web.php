@@ -36,13 +36,15 @@ Route::group(['prefix' => 'users'], function() {
 	Route::post('/house/store', 'HouseController@store')->name('house.store');
 	Route::delete('/house/destroy/{id}', 'HouseController@destroy')->name('house.destroy');
 	Route::get('/house/edit/{id}', 'HouseController@edit')->name('house.edit');
+	Route::post('/house/update', 'HouseController@update')->name('house.update');
 
 
 	// Complaint
-	Route::get('/house/complaint', 'HouseController@complaint')->name('house.complaint');
-	Route::post('house/complaint/store', 'HouseController@complaint_store')->name('house.complaint.store');
-	Route::post('house/complaint/get_house_info', 'HouseController@get_house_info')->name('house.get_house_info');
-	Route::post('house/complaint/get_area_detail', 'HouseController@get_area_detail')->name('house.get_area_detail');
+	Route::get('/complaint', 'ComplaintController@complaint')->name('house.complaint');
+	Route::post('/complaint/store', 'ComplaintController@store')->name('house.complaint.store');
+	Route::post('/complaint/get_house_info', 'ComplaintController@get_house_info')->name('house.get_house_info');
+	Route::post('/complaint/get_area_detail', 'ComplaintController@get_area_detail')->name('house.get_area_detail');
+
 
 
 });

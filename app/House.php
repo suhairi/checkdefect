@@ -39,11 +39,11 @@ class House extends Model
     }
 
     public function type() {
-        return $this->hasOne('App\Type', 'id', 'type_id');
+        return $this->belongsTo('App\Type', 'id', 'type_id');
     }
 
     public function type_detail() {
-        return $this->hasOne('App\TypeDetail', 'id', 'type_detail_id');
+        return $this->belongsTo('App\TypeDetail');
     }
 
 

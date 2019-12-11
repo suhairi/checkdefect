@@ -13,73 +13,73 @@ class TypeDetailTableSeeder extends Seeder
     {
         DB::table('type_detail')->insert([
         	'type_id'		=> '1',
-        	'name'			=> ucFirst('1 tingkat'),
+        	'name'			=> ucWords('1 tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '1',
-        	'name'			=> ucFirst('1½ tingkat'),
+        	'name'			=> ucWords('1½ tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '1',
-        	'name'			=> ucFirst('2 tingkat'),
+        	'name'			=> ucWords('2 tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '1',
-        	'name'			=> ucFirst('3 tingkat'),
+        	'name'			=> ucWords('3 tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '2',
-        	'name'			=> ucFirst('1 tingkat'),
+        	'name'			=> ucWords('1 tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '2',
-        	'name'			=> ucFirst('1½ tingkat'),
+        	'name'			=> ucWords('1½ tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '2',
-        	'name'			=> ucFirst('2 tingkat'),
+        	'name'			=> ucWords('2 tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '2',
-        	'name'			=> ucFirst('3 tingkat'),
+        	'name'			=> ucWords('3 tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '3',
-        	'name'			=> ucFirst('1 tingkat'),
+        	'name'			=> ucWords('1 tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '3',
-        	'name'			=> ucFirst('1½ tingkat'),
+        	'name'			=> ucWords('1½ tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '3',
-        	'name'			=> ucFirst('2 tingkat'),
+        	'name'			=> ucWords('2 tingkat'),
         	'description'	=> ''
         ]);
 
         DB::table('type_detail')->insert([
         	'type_id'		=> '3',
-        	'name'			=> ucFirst('3 tingkat'),
+        	'name'			=> ucWords('3 tingkat'),
         	'description'	=> ''
         ]);
 
