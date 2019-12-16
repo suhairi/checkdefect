@@ -15,11 +15,12 @@ class CreateComplaintTable extends Migration
     {
         Schema::create('complaint', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama');          
+            $table->string('name');          
             $table->integer('user_id');
             $table->integer('area_id');
             $table->integer('area_detail_id');
-            $table->integer('defect_id');
+            $table->integer('defect');
+            $table->string('image');
             $table->boolean('status');
             $table->text('notes');
         });

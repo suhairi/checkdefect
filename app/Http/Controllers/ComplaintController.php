@@ -6,12 +6,18 @@ use Illuminate\Http\Request;
 
 use Auth;
 use Session;
+use Validator;
+use Carbon\Carbon;
 
 use App\House;
 use App\Area;
 use App\AreaDetail;
 use App\Type;
 use App\TypeDetail;
+use App\Complaint;
+
+
+
 
 class ComplaintController extends Controller
 {
@@ -61,6 +67,35 @@ class ComplaintController extends Controller
     }
 
     public function store(Request $request) {
+
+        $date = Carbon::today();
+        $date = $date->isoFormat('YMd');
+        $userId = Auth::user()->id;
+
+        $imageCount = Complaint::where('id', $userId)->get()->count();
+        dd($imageName);
+
+        $validation = Validator::make($request->all(), [
+            'name'          => 'required|min:3|max:30',
+            'area_id'       => 'required|integer',
+            'area_detail_id'=> 'required|integer',
+            'defect'        => 'required|min:4',            
+        ]);
+
+        // return $request->all();
+
+        if($validation->fails()) {
+
+            return redirect('house/create')
+                    ->withError($validation)
+                    ->withInput();
+        }
+
+        $imageName = Auth::user()->id . '_' . $date . '.' . $request()->image->getClientOriginalExtension();
+        $request()->image->move(public_path('images'), $imageName);
+        dd($imageName);
+
+
 
     	return $request->all();
     }

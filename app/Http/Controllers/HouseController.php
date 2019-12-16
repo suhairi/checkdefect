@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\House;
 use Auth;
+use Session;
 use Validator;
+
+use App\House;
 use App\Type;
 use App\TypeDetail;
-use Session;
 use App\Area;
 use App\AreaDetail;
 

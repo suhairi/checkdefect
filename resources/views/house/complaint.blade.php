@@ -18,7 +18,7 @@
       @include('layouts._ifSuccess')
       @include('layouts._ifFailed')
 
-      {!! Form::open(['route' => 'complaint.store', 'method' => 'POST']) !!}
+      {!! Form::open(['route' => 'complaint.store', 'method' => 'POST', "enctype" => "multipart/form-data"]) !!}
 
   		<table class="table table-striped table-bordered">
         <tr>
@@ -43,6 +43,11 @@
           <th>Deskripsi / Nota Tambahan</th>
           <td>{{ Form::textarea('description', old('description'), ['class' => 'form-control', 'rows' => '4']) }}</td>
         </tr>
+        <tr>
+          <th>Gambar Kerosakan</th>
+          <td>{{ Form::file('image', ['class' => 'form-control']) }}</td>
+        </tr>
+        
         
         <tr>
           <td colspan="2" align="right"><a href="#"><button class="btn btn-primary">Rekod Aduan</button></a></td>
