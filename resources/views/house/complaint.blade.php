@@ -41,7 +41,7 @@
         </tr>
         <tr>
           <th>Deskripsi / Nota Tambahan</th>
-          <td>{{ Form::textarea('description', old('description'), ['class' => 'form-control', 'rows' => '4']) }}</td>
+          <td>{{ Form::textarea('notes', old('notes'), ['class' => 'form-control', 'rows' => '4']) }}</td>
         </tr>
         <tr>
           <th>Gambar Kerosakan</th>

@@ -10,6 +10,8 @@ class Complaint extends Model
     protected $primaryKey	= 'id';
     protected $fillable 	= ['name', 'user_id', 'area_id', 'area_detail_id', 'defect', 'image', 'status', 'notes'];
 
+    public $timestamps      = false;
+
     public function setNameAttribute($value) {
         $this->attributes['name'] = ucwords($value);
     }

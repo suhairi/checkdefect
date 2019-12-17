@@ -19,10 +19,10 @@ class CreateComplaintTable extends Migration
             $table->integer('user_id');
             $table->integer('area_id');
             $table->integer('area_detail_id');
-            $table->integer('defect');
+            $table->string('defect');
             $table->string('image');
             $table->boolean('status');
-            $table->text('notes');
+            $table->text('notes')->nullable();
         });
     }
 

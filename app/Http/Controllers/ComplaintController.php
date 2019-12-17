@@ -68,36 +68,47 @@ class ComplaintController extends Controller
 
     public function store(Request $request) {
 
+
+
         $date = Carbon::today();
         $date = $date->isoFormat('YMd');
         $userId = Auth::user()->id;
-
-        $imageCount = Complaint::where('id', $userId)->get()->count();
-        dd($imageName);
-
-        $validation = Validator::make($request->all(), [
-            'name'          => 'required|min:3|max:30',
+        $imageCount = Complaint::where('id', $userId)->get()->count() + 1;
+        
+        $this->validate($request, [
+            'name'          => 'required|integer|max:30',
             'area_id'       => 'required|integer',
             'area_detail_id'=> 'required|integer',
-            'defect'        => 'required|min:4',            
+            'defect'        => 'required|min:4',
+            'image'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'          
         ]);
 
-        // return $request->all();
+        $imageName  = Auth::user()->id . '_' . $date . '_' . $imageCount . '.' . $request->image->getClientOriginalExtension();
+        // dd($request->all());
 
-        if($validation->fails()) {
+        // Store
 
-            return redirect('house/create')
-                    ->withError($validation)
-                    ->withInput();
-        }
+        if(is_null($request->notes))
+            $notes = 'null';
 
-        $imageName = Auth::user()->id . '_' . $date . '.' . $request()->image->getClientOriginalExtension();
-        $request()->image->move(public_path('images'), $imageName);
-        dd($imageName);
+        Complaint::create([
+            'name'              => $request->name,
+            'user_id'           => Auth::user()->id,
+            'area_id'           => $request->area_id,
+            'area_detail_id'    => $request->area_detail_id,
+            'defect'            => $request->defect,
+            'image'             => $imageName,
+            'status'            => false,
+            'notes'             => $notes
+
+        ]);
+
+        $request->image->move(public_path('/images'), $imageName);
+        // $request->image->save();
+        Session::flash('success', 'Aduan telah berjaya direkod.');
 
 
-
-    	return $request->all();
+    	return redirect()->back();
     }
 
 
