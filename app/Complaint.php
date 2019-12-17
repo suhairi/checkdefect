@@ -16,6 +16,14 @@ class Complaint extends Model
         $this->attributes['name'] = ucwords($value);
     }
 
+    public function setDefectAttribute($value) {
+        $this->attributes['defect'] = ucwords($value);
+    }
+
+    public function setNotesAttribute($value) {
+        $this->attributes['notes'] = ucwords($value);
+    }
+
     public function user() {
     	return $this->belongsTo('App\User', 'id', 'user_id');
     }

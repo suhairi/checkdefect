@@ -36,7 +36,18 @@ class ComplaintController extends Controller
 
     public function get_house_info(Request $request) {
 
-        $house = House::where('id', $request->id)->first();
+        $house      = House::where('id', $request->id)->first();
+        $complaints = Complaint::where('user_id', Auth::user()->id)->get();
+
+        $listOfComplaints = '';
+
+        if(empty($complaints)) {
+            $listOfComplaints = "<tr><td colspan='3'><font color='red'>Tiada aduan bagi rumah ini.</td></tr>";
+        } else {
+            foreach($complaints as $complaint) {
+                $listOfComplaints .= "<tr><td>" . $complaint->area->name . "</td><td>" . $complaint->area_detail->name . "</td><td>" . $complaint->defect . "</td></tr>";
+            }
+        }
 
         // return $house->type->name;
 
@@ -46,6 +57,14 @@ class ComplaintController extends Controller
         $output .= "<tr><th>Alamat Rumah</th><td>". $house->address ."</td></tr>";
         $output .= "<tr><th>Jenis/Detail Rumah</th><td>". $house->type->name ."<br /> ". $house->type_detail->name ."</td></tr>";
         $output .= "<tr><th>Maklumat Pemaju</th><td>". $house->dev_name ." <br />". $house->dev_address ."<br />". $house->dev_phone ."</td></tr>";
+        $output .= "</table>";
+        $output .= "</div>";
+
+        $output  .= "<div class='card'>";
+        $output .= "<div class='card-header'><h4>Maklumat Aduan</h4></div>";
+        $output .= "<table class='table table-bordered'>";
+        $output .= "<tr><th>Area</th><th>Area Detail</th><th>Kerosakan</th></tr>";
+        $output .= $listOfComplaints;
         $output .= "</table>";
         $output .= "</div>";
 
