@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app2')
 
 @section('content')
 
@@ -12,7 +12,7 @@
 
   <!-- Content Row -->
   <div class="row">
-  	<div class="col-sm-6">
+  	<div class="col-sm-12">
 
       @include('layouts._ifError')
       @include('layouts._ifSuccess')
@@ -22,38 +22,45 @@
 
   		<table class="table table-striped table-bordered">
         <tr>
-  				<th>Rumah Aduan</th>
-          <td>{!! Form::select('name', $houses, null, ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Pilih', 'id' => 'house']) !!}</td>
+  				<th>
+            Rumah Aduan
+            {!! Form::select('name', $houses, null, ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Pilih', 'id' => 'house']) !!}
+          </th>
         </tr>
         <tr>
-    			<th>Ruang</th>
-          <td>{!! Form::select('area_id', $areas, old('area'),['class' => 'form-control', 'required', 'placeholder' => 'Ruang', 'id' => 'area']) !!}</td>          
+          <th>
+            Gambar Kerosakan
+            {{ Form::file('image', ['class' => 'form-control']) }}
+          </th>
         </tr>
         <tr>
-          <th>Detail Ruang</th>
-          <td>
+    			<th>
+            Ruang
+            {!! Form::select('area_id', $areas, old('area'),['class' => 'form-control', 'required', 'placeholder' => 'Ruang', 'id' => 'area']) !!}
+          </th>                    
+        </tr>
+        <tr>
+          <th>
+            Detail Ruang
             <select name="area_detail_id" class="form-control" id="area_detail"><option value="">Pilih Detail Ruang</option></select>
-          </td>          
+          </th>         
         </tr>
         <tr>
-          <th>Kerosakan (Ringkas) </th>
-          <td>{{ Form::text('defect', old('defect'), ['class' => 'form-control', 'placeholder' => 'Contoh: Rosak, Condong, Tiada Cat, Merekah']) }}</td>          
+          <th>
+            Kerosakan (Ringkas) 
+            {{ Form::text('defect', old('defect'), ['class' => 'form-control', 'placeholder' => 'Contoh: Rosak, Condong, Tiada Cat, Merekah']) }}
+          </th>                    
         </tr>
         <tr>
-          <th>Deskripsi / Nota Tambahan</th>
-          <td>{{ Form::textarea('notes', old('notes'), ['class' => 'form-control', 'rows' => '4']) }}</td>
-        </tr>
-        <tr>
-          <th>Gambar Kerosakan</th>
-          <td>{{ Form::file('image', ['class' => 'form-control']) }}</td>
-        </tr>
+          <th>
+            Deskripsi / Nota Tambahan
+            {{ Form::textarea('notes', old('notes'), ['class' => 'form-control', 'rows' => '4']) }}
+          </th>          
+        </tr>      
         
-        
         <tr>
-          <td colspan="2" align="right"><a href="#"><button class="btn btn-primary">Rekod Aduan</button></a></td>
+          <td align="right"><a href="#"><button class="btn btn-primary">Rekod Aduan</button></a></td>
         </tr>
-        <tr>
-  			</tr>
       </table>
       {!! Form::close() !!}
       
@@ -81,7 +88,7 @@
                 method:"POST",
                 data:{id:id, _token:_token},
                 success:function(data) {
-                  console.log(data);
+                  // console.log(data);
                   $('#info').html(data);                  
                 }
               })
