@@ -12,23 +12,19 @@
 
   <!-- Content Row -->
   <div class="row">
-  	<div class="col-sm-4">
+  	<div class="col-sm-3">
   		<table class="table table-striped table-bordered table-hover">
   			<tr>
-  				<th>Nama</th>
-  				<td>{{ Auth::user()->name }}</td>
+  				<td><strong>Nama : </strong><br />{{ Auth::user()->name }}</td>
   			</tr>
   			<tr>
-  				<th>Email/Username</th>
-  				<td>{{ Auth::user()->email }}</td>
+  				<td><strong>Email/Username : </strong><br />{{ Auth::user()->email }}</td>
   			</tr>
   			<tr>
-  				<th>Address</th>
-  				<td>{{ Auth::user()->address }}</td>
+  				<td><strong>Address : </strong><br />{{ Auth::user()->address }}</td>
   			</tr>
   			<tr>
-  				<th>Telephone No.</th>
-  				<td>{{ Auth::user()->phone }}</td>
+  				<td><strong>Telephone No. </strong><br />{{ Auth::user()->phone }}</td>
   			</tr>
   			<tr>
   				<td colspan="2" align="right">

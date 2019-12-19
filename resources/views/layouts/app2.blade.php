@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Starter Template · Bootstrap</title>
+    <title>Check House Defect</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/starter-template/">
 
@@ -65,6 +65,17 @@
 <!--       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li> -->
+      @if(Auth::user()->email == 'kowndkrul@gmail.com' || Auth::user()->email == 'suhairi81@gmail.com')
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="{{ route('profile') }}">Semak Permohonan</a>
+            <a class="dropdown-item" href="{{ route('house') }}">Senarai Mohon</a>
+          </div>
+        </li>
+      @endif
+
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -80,6 +91,17 @@
           <!-- <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
       </li>
+      <li class="nav-item">
+        <a href="{{ route('logout') }}"
+             onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+              <font color="grey"><b>{{ __('Logout') }}</b></font>
+          </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
+      </li>
+
     </ul>
   </div>
 </nav>

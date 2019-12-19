@@ -17,7 +17,7 @@ class CreateDefectTable extends Migration
             $table->bigIncrements('id');
             $table->integer('area_detail_id');
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
         });
     }
 
