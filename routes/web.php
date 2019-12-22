@@ -46,5 +46,10 @@ Route::group(['prefix' => 'users'], function() {
 	Route::post('/complaint/get_area_detail', 'ComplaintController@get_area_detail')->name('house.get_area_detail');
 
 
+	// PDF
+	Route::get('/pdf', 'PDFController@index')->name('pdf');
+	Route::get('/mail', 'MailController@index')->name('mail');
+
+
 
 });

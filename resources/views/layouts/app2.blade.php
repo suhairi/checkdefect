@@ -56,7 +56,7 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
       </li>
 <!--       <li class="nav-item">
@@ -92,7 +92,14 @@
         </div>
       </li>
       <li class="nav-item">
-        <a href="{{ route('logout') }}"
+        <a class="nav-link" href="{{ route('pdf') }}">PDF</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('mail') }}">Mail</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('logout') }}"
              onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">
               <font color="grey"><b>{{ __('Logout') }}</b></font>

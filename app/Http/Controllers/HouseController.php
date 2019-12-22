@@ -49,21 +49,12 @@ class HouseController extends Controller
 
     public function store(Request $request) {
 
-    	$validation = Validator::make($request->all(), [
-    		'name' 			=> 'required|min:3|max:30',
-    		'address'		=> 'required|min:10',
-    		'dev_name'		=> 'required|min:3'
-    	]);
 
-        // return $request->all();
-
-    	if($validation->fails()) {
-
-    		return redirect('house/create')
-    				->withError($validation)
-    				->withInput();
-    	}
-
+        $this->validate($request, [
+            'name'          => 'required|min:3|max:30',
+            'address'       => 'required|min:10',
+            'dev_name'      => 'required|min:3'
+        ]);
 
     	House::create([
     		'name'			=> $request->name,
