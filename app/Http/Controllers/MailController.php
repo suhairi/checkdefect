@@ -6,24 +6,37 @@ use Illuminate\Http\Request;
 
 use Session;
 use Mail;
+use App\User;
 
 class MailController extends Controller
 {
-    $to_name = "Suhairi Abdul Hamid";
-	$to_email = "caliphdynamics@gmail.com";
 
-	$data = array('name'=>'Check Defect System(sender_name)', 'body' => 'A test mail');
+	public function index() {
 
-	Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
-		$message->to($to_email, $to_name)
-				->subject('Laravel Test Mail');
-		$message->from('SENDER_EMAIL_ADDRESS','Test Mail');
-	});
+		$no_of_users = User::all()->count();
 
+	    $to_name = 'Suhairi Abdul Hamid';
+		$to_email = 'caliphdynamics@gmail.com';
+		
+		$data = [
+			'name' => 'Admin', 
+			'body' => 'A user has been registered to your portal.', 
+			'noOfUsers' => $no_of_users
+		];
 
-	Session::flash('success', 'Email has been sent.');
+		// return $data;
+		
+		Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
+			$message->to($to_email, $to_name)
+			->subject('Registration Notification Mail');
+			$message->from('admin@checkdefectrumah.com', 'Notification Mail');
+			$message->cc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
+		});
 
-	return redirect()->route('home');
+		Session::flash('success', 'Email has been sent.');
+
+		return redirect()->route('home');
+	}
 
 
 }

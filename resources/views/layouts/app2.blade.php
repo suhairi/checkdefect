@@ -97,6 +97,10 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('mail') }}">Mail</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('whatsapp') }}">Whatsapp</a>
+      </li>
+      
       
       <li class="nav-item">
         <a class="nav-link" href="{{ route('logout') }}"

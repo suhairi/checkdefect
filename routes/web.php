@@ -49,6 +49,7 @@ Route::group(['prefix' => 'users'], function() {
 	// PDF
 	Route::get('/pdf', 'PDFController@index')->name('pdf');
 	Route::get('/mail', 'MailController@index')->name('mail');
+	Route::get('/whatsapp', 'WhatsappController@index')->name('whatsapp');
 
 
 
