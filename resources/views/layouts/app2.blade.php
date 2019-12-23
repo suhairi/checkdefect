@@ -66,6 +66,7 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li> -->
       @if(Auth::user()->email == 'kowndkrul@gmail.com' || Auth::user()->email == 'suhairi81@gmail.com')
+      
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -73,45 +74,44 @@
             <a class="dropdown-item" href="{{ route('house') }}">Senarai Mohon</a>
           </div>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('aduan') }}">Senarai Aduan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('pdf') }}">PDF</a>
+        </li>        
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('mail') }}">Mail</a>
+        </li>
+
+      @else
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="{{ route('profile') }}">Maklumat Diri</a>
+            <a class="dropdown-item" href="{{ route('house') }}">Maklumat Rumah</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aduan</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <a class="dropdown-item" href="{{ route('complaint') }}">Rekod Aduan</a>
+            <a class="dropdown-item" href="#">Senarai Aduan</a>
+            <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+          </div>
+        </li>
+    
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                <font color="grey"><b>{{ __('Logout') }}</b></font>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </li>
       @endif
-
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="{{ route('profile') }}">Maklumat Diri</a>
-          <a class="dropdown-item" href="{{ route('house') }}">Maklumat Rumah</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aduan</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="{{ route('complaint') }}">Rekod Aduan</a>
-          <a class="dropdown-item" href="#">Senarai Aduan</a>
-          <!-- <a class="dropdown-item" href="#">Something else here</a> -->
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('pdf') }}">PDF</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('mail') }}">Mail</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('whatsapp') }}">Whatsapp</a>
-      </li>
-      
-      
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('logout') }}"
-             onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-              <font color="grey"><b>{{ __('Logout') }}</b></font>
-          </a>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-              @csrf
-          </form>
-      </li>
 
     </ul>
   </div>

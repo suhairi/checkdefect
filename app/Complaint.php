@@ -25,7 +25,7 @@ class Complaint extends Model
     }
 
     public function user() {
-    	return $this->belongsTo('App\User', 'id', 'user_id');
+    	return $this->belongsTo('App\User');
     }
 
     public function area() {
@@ -34,5 +34,9 @@ class Complaint extends Model
 
     public function area_detail() {
     	return $this->belongsTo('App\AreaDetail');
+    }
+
+    public function house() {
+        return $this->belongsTo('App\House', 'name', 'id');
     }
 }

@@ -51,6 +51,10 @@ Route::group(['prefix' => 'users'], function() {
 	Route::get('/mail', 'MailController@index')->name('mail');
 	Route::get('/whatsapp', 'WhatsappController@index')->name('whatsapp');
 
+	// Admin
+	Route::get('/aduan', 'AdminController@index')->name('aduan');
+	Route::get('/detailAduan/{id}', 'AdminController@detailAduan')->name('detailAduan');
+
 
 
 });

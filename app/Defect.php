@@ -14,7 +14,7 @@ class Defect extends Model
     public $timestamps		= false;
 
     public function setNameAttribute($value) {
-        $this->attributes['name'] = ucwords($value);
+        $this->attributes['name'] = strtoupper($value);
     }
 
     public function setDescriptionAttribute($value) {

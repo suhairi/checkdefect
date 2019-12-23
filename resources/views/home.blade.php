@@ -53,6 +53,11 @@
               <div class="text-danger font-weight-bold">Tiada maklumat 'Rumah Aduan'.</div>
               <div class="text-secondary">Daftar/Rekod 'Rumah Aduan' di <a href="{{ route('house.create') }}">sini</a></div>
             @endif
+
+            @if(!empty($profile) && !empty($house))
+              <div class="text-secondary">Tiada makluman.</div>
+              <br />
+            @endif
           </div>
         </div>
 
