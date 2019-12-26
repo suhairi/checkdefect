@@ -21,7 +21,6 @@ class Defect extends Model
         $this->attributes['description'] = ucwords($value);
     }
 
-
     public function area_detail() {
         return $this->belongsTo('App\AreaDetail');
     }

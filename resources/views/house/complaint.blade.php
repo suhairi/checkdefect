@@ -30,7 +30,7 @@
         <tr>
           <th>
             Gambar Kerosakan
-            {{ Form::file('image', ['class' => 'form-control']) }}
+            {{ Form::file('image', ['class' => 'form-control', 'required']) }}
           </th>
         </tr>
         <tr>
@@ -65,9 +65,7 @@
       {!! Form::close() !!}
       
     </div>
-    <div class="col-sm-6 card" id="info" style="padding-top: 5px">here</div>
-    <div class="col-sm-6 card" style="padding-top: 5px">here</div>
-
+    <div class="col-sm-6 card" id="info" style="padding-top: 5px">&nbsp;</div>
 
   </div>
 
@@ -116,7 +114,7 @@
           $('#area_detail').change(function() {
 
             var id = $('#area').val();
-            alert(id);
+            // alert(id);
             var _token = $("input[name='_token']").val();
 
             $.ajax({
@@ -126,7 +124,7 @@
 
                 success:function(data) {
                   console.log(data);
-                  $('#area_detail').html(data);                  
+                  $('#defect_id').html(data);                  
                 }
             });
 

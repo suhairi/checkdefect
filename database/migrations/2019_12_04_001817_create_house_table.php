@@ -22,7 +22,7 @@ class CreateHouseTable extends Migration
             $table->text('dev_address')->nullable();
             $table->string('dev_phone')->nullable();
             $table->string('type_id');
-            $table->string('type_detail_id');
+            $table->string('type_detail_id')->nullable();
             $table->string('valuation_date');
         });
     }

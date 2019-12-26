@@ -46,7 +46,7 @@ class ComplaintController extends Controller
             $listOfComplaints = "<tr><td colspan='3'><font color='red'>Tiada aduan bagi rumah ini.</td></tr>";
         } else {
             foreach($complaints as $complaint) {
-                $listOfComplaints .= "<tr><td>" . $complaint->area->name . "</td><td>" . $complaint->area_detail->name . "</td><td>" . $complaint->defect . "</td></tr>";
+                $listOfComplaints .= "<tr><td>" . $complaint->area->name . "</td><td>" . $complaint->area_detail->name . "</td><td>" . $complaint->defect->name . "</td></tr>";
             }
         }
 
@@ -56,7 +56,7 @@ class ComplaintController extends Controller
         $output .= "<div class='card-header'><h4>Maklumat Rumah Aduan</h4></div>";
         $output .= "<table class='table table-bordered'>";
         $output .= "<tr><th>Alamat Rumah</th><td>". $house->address ."</td></tr>";
-        $output .= "<tr><th>Jenis/Detail Rumah</th><td>". $house->type->name ."<br /> ". $house->type_detail->name ."</td></tr>";
+        $output .= "<tr><th>Jenis/Detail Rumah</th><td>". $house->type->name ."<br /> </td></tr>";
         $output .= "<tr><th>Maklumat Pemaju</th><td>". $house->dev_name ." <br />". $house->dev_address ."<br />". $house->dev_phone ."</td></tr>";
         $output .= "</table>";
         $output .= "</div>";
@@ -97,7 +97,6 @@ class ComplaintController extends Controller
         }
 
 
-
         return $output;
 
     }
@@ -109,13 +108,14 @@ class ComplaintController extends Controller
         $date = Carbon::today();
         $date = $date->isoFormat('YMd');
         $userId = Auth::user()->id;
-        $imageCount = Complaint::where('id', $userId)->get()->count() + 1;
+        $imageCount = Complaint::where('id', $userId)->get()->count();
+        $imageCount++;
         
         $this->validate($request, [
             'name'          => 'required|integer|max:30',
             'area_id'       => 'required|integer',
             'area_detail_id'=> 'required|integer',
-            'defect'        => 'required|min:4',
+            'defect_id'     => 'required|integer',
             'image'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'          
         ]);
 
@@ -132,7 +132,7 @@ class ComplaintController extends Controller
             'user_id'           => Auth::user()->id,
             'area_id'           => $request->area_id,
             'area_detail_id'    => $request->area_detail_id,
-            'defect'            => $request->defect,
+            'defect_id'         => $request->defect_id,
             'image'             => $imageName,
             'status'            => false,
             'notes'             => $notes

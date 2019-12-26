@@ -8,7 +8,7 @@ class Complaint extends Model
 {
     protected $table 		= 'complaint';
     protected $primaryKey	= 'id';
-    protected $fillable 	= ['name', 'user_id', 'area_id', 'area_detail_id', 'defect', 'image', 'status', 'notes'];
+    protected $fillable 	= ['name', 'user_id', 'area_id', 'area_detail_id', 'defect_id', 'image', 'status', 'notes'];
 
     public $timestamps      = false;
 
@@ -38,5 +38,9 @@ class Complaint extends Model
 
     public function house() {
         return $this->belongsTo('App\House', 'name', 'id');
+    }
+
+    public function defect() {
+        return $this->belongsTo('App\Defect', 'defect_id', 'id');
     }
 }
