@@ -105,7 +105,7 @@
                 data:{id:id, _token:_token},
 
                 success:function(data) {
-                  console.log(data)
+                  // console.log(data)
                   $('#area_detail').html(data);                  
                 }
               });
@@ -123,7 +123,7 @@
                 data:{id:id, _token:_token},
 
                 success:function(data) {
-                  console.log(data);
+                  // console.log(data);
                   $('#defect_id').html(data);                  
                 }
             });

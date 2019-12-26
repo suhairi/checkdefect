@@ -72,6 +72,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="{{ route('profile') }}">Semak Permohonan</a>
             <a class="dropdown-item" href="{{ route('house') }}">Senarai Mohon</a>
+            <a class="dropdown-item" href="{{ route('reports') }}">Reports</a>
           </div>
         </li>
         <li class="nav-item">
