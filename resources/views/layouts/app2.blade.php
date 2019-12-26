@@ -100,7 +100,8 @@
             <!-- <a class="dropdown-item" href="#">Something else here</a> -->
           </div>
         </li>
-    
+  
+      @endif
         <li class="nav-item">
           <a class="nav-link" href="{{ route('logout') }}"
                onclick="event.preventDefault();
@@ -111,7 +112,6 @@
                 @csrf
             </form>
         </li>
-      @endif
 
     </ul>
   </div>

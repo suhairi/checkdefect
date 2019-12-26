@@ -48,7 +48,7 @@
         <tr>
           <th>
             Kerosakan (Ringkas) 
-            {{ Form::text('defect', old('defect'), ['class' => 'form-control', 'placeholder' => 'Contoh: Rosak, Condong, Tiada Cat, Merekah']) }}
+            <select name="defect_id" class="form-control" id="defect_id"><option value="">Pilih Kerosakan</option></select>
           </th>                    
         </tr>
         <tr>
@@ -105,11 +105,31 @@
                 url:"{{ route('house.get_area_detail') }}",
                 method:"POST",
                 data:{id:id, _token:_token},
+
+                success:function(data) {
+                  console.log(data)
+                  $('#area_detail').html(data);                  
+                }
+              });
+            });
+
+          $('#area_detail').change(function() {
+
+            var id = $('#area').val();
+            alert(id);
+            var _token = $("input[name='_token']").val();
+
+            $.ajax({
+                url:"{{ route('house.get_defect') }}",
+                method:"POST",
+                data:{id:id, _token:_token},
+
                 success:function(data) {
                   console.log(data);
                   $('#area_detail').html(data);                  
                 }
-              })
+            });
+
           });
        
 

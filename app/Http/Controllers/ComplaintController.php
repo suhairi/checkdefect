@@ -15,6 +15,7 @@ use App\AreaDetail;
 use App\Type;
 use App\TypeDetail;
 use App\Complaint;
+use App\Defect;
 
 
 
@@ -75,7 +76,7 @@ class ComplaintController extends Controller
 
         $area_details = AreaDetail::where('area_id', $request->id)->get();
 
-        $output = "<option value=''>Detail Ruang...</option>";
+        $output = "<option id='area_detail' value=''>Detail Ruang...</option>";
 
         foreach($area_details as $details) {
             $output .= "<option value='". $details->id ."'>". $details->name ."</option>";
@@ -83,6 +84,22 @@ class ComplaintController extends Controller
 
 
         return $output;
+    }
+
+    public function get_defect(Request $request) {
+
+        $defects = Defect::where('area_id', $request->id)->get();
+
+        $output = "<option id='defect' value=''>Detail Kerosakan...</option>";
+
+        foreach($defects as $defect) {
+            $output .= "<option value='". $defect->id ."'>". $defect->name ."</option>";
+        }
+
+
+
+        return $output;
+
     }
 
     public function store(Request $request) {

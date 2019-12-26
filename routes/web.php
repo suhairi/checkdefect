@@ -44,6 +44,7 @@ Route::group(['prefix' => 'users'], function() {
 	Route::post('/complaint/store', 'ComplaintController@store')->name('complaint.store');
 	Route::post('/complaint/get_house_info', 'ComplaintController@get_house_info')->name('house.get_house_info');
 	Route::post('/complaint/get_area_detail', 'ComplaintController@get_area_detail')->name('house.get_area_detail');
+	Route::post('/complaint/get_defect', 'ComplaintController@get_defect')->name('house.get_defect');
 
 
 	// PDF

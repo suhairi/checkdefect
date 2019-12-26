@@ -21,7 +21,7 @@
       @foreach($complaints as $complaint)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $complaint->user->name }}</td>
+          <td><a href="{{ route('detailAduan', $complaint->user->id) }}">{{ $complaint->user->name }}</a></td>
         </tr>
       @endforeach
     </table>
