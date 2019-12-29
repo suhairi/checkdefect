@@ -8,13 +8,10 @@ class Complaint extends Model
 {
     protected $table 		= 'complaint';
     protected $primaryKey	= 'id';
-    protected $fillable 	= ['name', 'user_id', 'area_id', 'area_detail_id', 'defect_id', 'image', 'status', 'notes'];
+    protected $fillable 	= ['house_id', 'user_id', 'area_id', 'area_detail_id', 'defect_id', 'image', 'status', 'notes'];
 
     public $timestamps      = false;
 
-    public function setNameAttribute($value) {
-        $this->attributes['name'] = ucwords($value);
-    }
 
     public function setDefectAttribute($value) {
         $this->attributes['defect'] = ucwords($value);
@@ -37,7 +34,7 @@ class Complaint extends Model
     }
 
     public function house() {
-        return $this->belongsTo('App\House', 'name', 'id');
+        return $this->belongsTo('App\House');
     }
 
     public function defect() {

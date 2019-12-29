@@ -6,7 +6,7 @@
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h4 mb-0 text-gray-800">Senarai Aduan</h1>
+    <h1 class="h4 mb-0 text-gray-800">Report #2</h1>
     <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
   </div>
 
@@ -37,6 +37,9 @@
   				<tr><td colspan="4"><font color="red">Tiada Aduan.</font></td></tr>
   			@endforelse
   		</table>
+
+      <p>Kindly, attend to the above house due to the following defect(s) / complaint(s) :-</p>
+      
   		
   	</div>
   </div>

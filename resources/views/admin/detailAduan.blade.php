@@ -1,35 +1,65 @@
-@extends('layouts.app2')
+<html>
+<body>
 
-@section('content')
+<table>
+  @foreach($complaints as $complaint)
+    <tr><td><strong>Nama </strong></td><td>:</td><td>{{ $complaint->user->name }}</td></tr>
+    <tr><td><strong>I/C No </strong></td><td>:</td><td>&nbsp;</td></tr>
+    <tr><td><strong>Contact</strong></td><td>:</td><td>{{ $complaint->user->phone}}</td></tr>
+    <tr><td><strong>House No</strong></td><td>:</td><td>{{ $complaint->house->address }}</td></tr>
+    <tr><td><strong>Date</strong></td><td>:</td><td>{{ $complaint->house->valuation_date }}</td></tr>
+  @endforeach
+</table>
+<br /><br />
 
-<div class="container-fluid">
+<p>Kindly, attend to the above house due to the following defect(s) / complaint(s) :-</p>
 
-  <!-- Page Heading -->
-  <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h3 class="h3 mb-0 text-gray-800">Senarai Aduan</h3>
-    <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-  </div>
+<p>1. <strong>Please refer to the attached lists (Total no of page 12/12)</strong></p>
 
-  @include('layouts._ifError')
-  @include('layouts._ifSuccess')
-  @include('layouts._ifFailed')
+<br><br><br>
+<p>Please check the house and arrange for the necessary repair(s) / replacement(s) as soon as possible.</p>
 
-  <!-- Content Row -->
-  <div class="row">
+<p>Thank you.</p>
 
-    <table class="table table-hover">
-      @foreach($complaints as $complaint)
-        <tr><td><strong>Nama </strong></td><td>:</td><td>{{ $complaint->user->name }}</td></tr>
-        <tr><td><strong>I/C No </strong></td><td>:</td><td>&nbsp;</td></tr>
-        <tr><td><strong>Contact</strong></td><td>:</td><td>{{ $complaint->user->phone}}</td></tr>
-        <tr><td><strong>House No</strong></td><td>:</td><td>{{ $complaint->house->address }}</td></tr>
-        <tr><td><strong>Date</strong></td><td>:</td><td>{{ $complaint->house->valuation_date }}</td></tr>
-      @endforeach
-    </table>
+<p>Sincerely,</p>
+
+<br /><br />
+<p>....................</p>
+Name : {{ $complaint->user->name }}<br />
+I/C No : <br />
+Date : <<br />
+
+<br />
+<hr />
+
+<br />
+
+<table>
+  <tr>
+    <td width="50%" valign="top">I / We hereby confirmed that all the above mentioned defects have been repairs and all of them are in good condtions.</td>
+    <td valign="top">I hereby concede that I have received the balance of key.</td>
+  </tr>
+  <tr>
+    <td>
+      <br />
+      .......................<br />
+      Name :<br />
+      I/C No. :<br />
+      Date :<br />
+    </td>
+    <td>
+      <br />
+      .......................<br />
+      Name :<br />
+      I/C No. :<br />
+      Date :<br />
+    </td>
+    
+  </tr>
+</table>
+
+</body>
+</html>
 
 
-  </div>
 
-
-
-@endsection

@@ -21,7 +21,7 @@
       @foreach($complaints as $complaint)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td><a href="{{ route('detailAduan', $complaint->user->id) }}">{{ $complaint->user->name }}</a></td>
+          <td><a href="{{ route('detailAduan', $complaint->user->id) }}">{{ $complaint->user->name }}</a> (click for saving pdf in the server archive.)</td>
         </tr>
       @endforeach
     </table>

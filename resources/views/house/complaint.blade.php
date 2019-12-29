@@ -24,7 +24,7 @@
         <tr>
   				<th>
             Rumah Aduan
-            {!! Form::select('name', $houses, null, ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Pilih', 'id' => 'house']) !!}
+            {!! Form::select('house_id', $houses, null, ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Pilih', 'id' => 'house']) !!}
           </th>
         </tr>
         <tr>

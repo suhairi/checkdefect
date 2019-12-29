@@ -112,7 +112,7 @@ class ComplaintController extends Controller
         $imageCount++;
         
         $this->validate($request, [
-            'name'          => 'required|integer|max:30',
+            'house_id'      => 'required|integer',
             'area_id'       => 'required|integer',
             'area_detail_id'=> 'required|integer',
             'defect_id'     => 'required|integer',
@@ -128,7 +128,7 @@ class ComplaintController extends Controller
             $notes = 'null';
 
         Complaint::create([
-            'name'              => $request->name,
+            'house_id'          => $request->house_id,
             'user_id'           => Auth::user()->id,
             'area_id'           => $request->area_id,
             'area_detail_id'    => $request->area_detail_id,
