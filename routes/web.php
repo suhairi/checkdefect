@@ -54,7 +54,8 @@ Route::group(['prefix' => 'users'], function() {
 
 	// Admin
 	Route::get('/aduan', 'AdminController@index')->name('aduan');
-	Route::get('/pdf/detailAduan/{id}', 'AdminController@detailAduan')->name('detailAduan');
+	Route::get('/pdf/report2/{id}', 'AdminController@report2')->name('report2');
+	Route::get('/pdf/report3/{id}', 'AdminController@report3')->name('report3');
 	Route::get('/users', 'AdminController@users')->name('users');
 
 

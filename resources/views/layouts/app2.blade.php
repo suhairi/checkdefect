@@ -73,12 +73,12 @@
             <a class="dropdown-item" href="{{ route('aduan') }}">Senarai Aduan</a>
           </div>
         </li>
-        <li class="nav-item">
+<!--         <li class="nav-item">
           <a class="nav-link" href="{{ route('pdf') }}">PDF</a>
         </li>        
         <li class="nav-item">
           <a class="nav-link" href="{{ route('mail') }}">Mail</a>
-        </li>
+        </li> -->
 
       @else
         <li class="nav-item dropdown">

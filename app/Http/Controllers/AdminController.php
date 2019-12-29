@@ -23,7 +23,7 @@ class AdminController extends Controller
     	return view('admin.index', compact('complaints'));
     }
 
-    public function detailAduan($id) {
+    public function report2($id) {
 
     	$complaints = Complaint::where('user_id', $id)->get();
     	$user = User::where('id', $id)->first();
@@ -32,7 +32,7 @@ class AdminController extends Controller
     	$tarikh = $tarikh->isoFormat('DMY');
     	$fileName = $user->id . '_' . $tarikh . '.pdf';
 
-    	$pdf = PDF::loadView('admin.detailAduan',['complaints' => $complaints]);
+    	$pdf = PDF::loadView('admin.reports.report2',['complaints' => $complaints]);
 
     	// Make Directory First
     	$path = public_path() . '/pdf/' . $user->id;
@@ -40,6 +40,26 @@ class AdminController extends Controller
 
     	$pdf->save($path . '/' . $fileName);
     	return $pdf->download('reports2.pdf');
+
+    }
+
+    public function report3($id) {
+
+        $complaints = Complaint::where('user_id', $id)->get();
+        $user = User::where('id', $id)->first();
+        
+        $tarikh = Carbon::today();
+        $tarikh = $tarikh->isoFormat('DMY');
+        $fileName = $user->id . '_' . $tarikh . '.pdf';
+
+        $pdf = PDF::loadView('admin.detailAduan',['complaints' => $complaints]);
+
+        // Make Directory First
+        $path = public_path() . '/pdf/' . $user->id;
+        File::makeDirectory($path, $mode = 0777, true, true);
+
+        $pdf->save($path . '/' . $fileName);
+        return $pdf->download('reports2.pdf');
 
     }
 

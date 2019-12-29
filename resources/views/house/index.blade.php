@@ -22,19 +22,15 @@
   			<tr>
   				<th>Bil</th>
   				<th>Alamat</th>
-  				<th>Nama Pemaju</th>
-  				<th>Alamat Pemaju</th>
-  				<th>No Telefon Pemaju</th>
+  				<th>Nama / Alamat Pemaju / No Telefon </th>
   				<th>Pilihan</th>
   			</tr>
 
   			@forelse($houses as $house)
 				<tr>
 					<td>{{ $loop->iteration }}</td>
-					<td>{{ $house->address }}</td>
-					<td>{{ $house->dev_name }}</td>
-					<td>{{ $house->dev_address }}</td>
-					<td>{{ $house->dev_phone }}</td>
+					<td><strong>{{ $house->name }}</strong> <br />{{ $house->address }}</td>
+					<td><strong>{{ $house->dev_name }} </strong><br />{{ $house->dev_address }}<br /><br />{{ $house->dev_phone }}</td>
 					<td align="center">
 		                <div class="inline">
 							<a href="{{ route('house.edit', $house->id) }}" class="btn btn-primary">Edit</a>
