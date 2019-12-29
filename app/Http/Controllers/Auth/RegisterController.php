@@ -87,7 +87,6 @@ class RegisterController extends Controller
             ->subject('checkdefectrumah.com : User Registration');
             $message->from('admin@checkdefectrumah.com', 'Notification Mail');
             $message->cc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
-            $message->bcc('caliphdynamics@gmail.com', 'Suhairi Abdul Hamid.');
         });
 
         return User::create([

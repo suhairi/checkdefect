@@ -70,5 +70,15 @@ class AdminController extends Controller
     	return view('admin.reports.users', compact('users'));
     }
 
+    public function listFiles($id) {
+
+        $path = public_path('pdf\\' . $id);
+        // return $path;
+        $files = scandir($path, SCANDIR_SORT_DESCENDING);
+
+
+        dd($files[0]);
+    }
+
 
 }

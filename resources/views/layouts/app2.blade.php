@@ -73,10 +73,10 @@
             <a class="dropdown-item" href="{{ route('aduan') }}">Senarai Aduan</a>
           </div>
         </li>
-<!--         <li class="nav-item">
-          <a class="nav-link" href="{{ route('pdf') }}">PDF</a>
-        </li>        
         <li class="nav-item">
+          <a class="nav-link" href="{{ route('files', 3) }}">List Files</a>
+        </li>        
+<!--         <li class="nav-item">
           <a class="nav-link" href="{{ route('mail') }}">Mail</a>
         </li> -->
 
