@@ -30,7 +30,7 @@ class AdminController extends Controller
     	
     	$tarikh = Carbon::today();
     	$tarikh = $tarikh->isoFormat('DMY');
-    	$fileName = $user->id . '_' . $tarikh . '.pdf';
+    	$fileName = $user->id . '_' . $tarikh . '_report2.pdf';
 
     	$pdf = PDF::loadView('admin.reports.report2',['complaints' => $complaints]);
 
@@ -50,16 +50,18 @@ class AdminController extends Controller
         
         $tarikh = Carbon::today();
         $tarikh = $tarikh->isoFormat('DMY');
-        $fileName = $user->id . '_' . $tarikh . '.pdf';
+        $fileName = $user->id . '_' . $tarikh . '_report3.pdf';
 
-        $pdf = PDF::loadView('admin.detailAduan',['complaints' => $complaints]);
+        return view('admin.reports.report3', compact('complaints', 'user'));
 
-        // Make Directory First
+        $pdf = PDF::loadView('admin.reports.report3',['complaints' => $complaints]);
+
+        // Make Directory First then save into the dir.
         $path = public_path() . '/pdf/' . $user->id;
         File::makeDirectory($path, $mode = 0777, true, true);
 
         $pdf->save($path . '/' . $fileName);
-        return $pdf->download('reports2.pdf');
+        return $pdf->download('reports3.pdf');
 
     }
 

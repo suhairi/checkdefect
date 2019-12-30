@@ -120,10 +120,8 @@ class ComplaintController extends Controller
         ]);
 
         $imageName  = Auth::user()->id . '_' . $date . '_' . $imageCount . '.' . $request->image->getClientOriginalExtension();
-        // dd($request->all());
 
         // Store
-
         if(is_null($request->notes))
             $notes = 'null';
 
@@ -134,9 +132,7 @@ class ComplaintController extends Controller
             'area_detail_id'    => $request->area_detail_id,
             'defect_id'         => $request->defect_id,
             'image'             => $imageName,
-            'status'            => false,
             'notes'             => $notes
-
         ]);
 
         $request->image->move(public_path('/images'), $imageName);

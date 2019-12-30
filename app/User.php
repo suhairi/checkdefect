@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function setNameAttribute($value) {
         $this->attributes['name'] = ucwords($value);
     }
+
+    public function house() {
+        return $this->hasManyThrough('App\House', 'user_id');
+    }
 }

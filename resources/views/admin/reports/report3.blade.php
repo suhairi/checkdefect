@@ -2,25 +2,60 @@
 <body>
 
 <table>
-  @foreach($complaints as $complaint)
-    <tr><td><strong>Nama </strong></td><td>:</td><td>{{ $complaint->user->name }}</td></tr>
-    <tr><td><strong>No Telefon</strong></td><td>:</td><td>{{ $complaint->user->phone}}</td></tr>
-    <tr><td><strong>Alamat</strong></td><td>:</td><td>{{ $complaint->house->address }}</td></tr>
-    <tr><td><strong>Tarikh</strong></td><td>:</td><td>{{ $complaint->house->valuation_date }}</td></tr>
-    <tr><td><strong>Aduan Kali Ke</strong></td><td>:</td><td>{{ $complaint->house->valuation_date }}</td></tr>
-  @endforeach
-</table>
-<br /><br />
-
-<table>
   <tr>
-    <th>Bil</th>
-    <th>Ruang</th>
-    <th>Perkara</th>
-    <th>Aduan Kecacatan</th>
+    <td>
+      <table width="100%">
+        <tr>
+          <td colspan="3"><h3>ADUAN KEROSKAN / KECACATAN RUMAH</h3></td>
+        </tr>
+        <tr>
+          <td>Nama</td>
+          <td>:</td>
+          <td>{{ $user->name }}</td>
+        </tr>
+        <tr>
+          <td>No Telefon</td>
+          <td>:</td>
+          <td>{{ $user->phone }}</td>
+        </tr>
+        <tr>
+          <td>Alamat</td>
+          <td>:</td>
+          <td>{{ $user->address }}</td>
+        </tr>
+        <tr>
+          <td>Tarikh</td>
+          <td>:</td>
+          <td>{{ $user->house->valuation_date }}</td>
+        </tr>
+        <tr>
+          <td>Aduan Kali Ke</td>
+          <td>:</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <table border=1 width="100%">
+              <tr>
+                <th>Bil</th>
+                <th>Ruang</th>
+                <th>Perkara</th>
+                <th>Aduan Kecacatan</th>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        
+        
+      </table>
+      
+
+
+
+
+
+    </td>
   </tr>
-  
-</table>
 
 </body>
 </html>

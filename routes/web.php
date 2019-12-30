@@ -64,6 +64,9 @@ Route::group(['prefix' => 'users'], function() {
 	// Reports
 	Route::get('/admin/reports', 'ReportController@index')->name('reports');
 
+	// Test Send Mail
+	Route::get('/admin/mail', 'MailController@index')->name('mail');
+
 
 
 });
