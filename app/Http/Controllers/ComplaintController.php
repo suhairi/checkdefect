@@ -16,6 +16,7 @@ use App\Type;
 use App\TypeDetail;
 use App\Complaint;
 use App\Defect;
+use App\Report;
 
 
 
@@ -122,8 +123,24 @@ class ComplaintController extends Controller
         $imageName  = Auth::user()->id . '_' . $date . '_' . $imageCount . '.' . $request->image->getClientOriginalExtension();
 
         // Store
+        $notes = '';
         if(is_null($request->notes))
             $notes = 'null';
+
+        // Create a report if does not have one that status is not done
+        $report = Report::where('user_id', $userId)->where('house_id', $request->house_id)->where('sent', 0)->first();
+
+        if(empty($report)) {
+
+            $report = Report::create([
+                    'user_id'   => $userId,
+                    'house_id'  => $request->house_id,
+                    'pages'     => 0,
+                    'sent'      => 0
+                ]);
+        }
+
+        return $report;
 
         Complaint::create([
             'house_id'          => $request->house_id,
