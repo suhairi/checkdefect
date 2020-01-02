@@ -140,28 +140,30 @@ class ComplaintController extends Controller
                 ]);
         }
 
-        return $report;
-
         Complaint::create([
             'house_id'          => $request->house_id,
             'user_id'           => Auth::user()->id,
             'area_id'           => $request->area_id,
             'area_detail_id'    => $request->area_detail_id,
             'defect_id'         => $request->defect_id,
+            'report_id'         => $report->id,
             'image'             => $imageName,
             'notes'             => $notes
         ]);
 
         $request->image->move(public_path('/images'), $imageName);
-        // $request->image->save();
         Session::flash('success', 'Aduan telah berjaya direkod.');
 
 
     	return redirect()->back();
     }
 
+    public function list() {
 
+        $reports = Report::where('user_id', Auth::user()->id)->get();
 
+        return view('reports.index', compact('reports'));
+    }
 
 
 }

@@ -100,7 +100,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aduan</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="{{ route('complaint') }}">Rekod Aduan</a>
-            <a class="dropdown-item" href="#">Senarai Aduan</a>
+            <a class="dropdown-item" href="{{ route('listAduan') }}">Senarai Aduan</a>
             <!-- <a class="dropdown-item" href="#">Something else here</a> -->
           </div>
         </li>
