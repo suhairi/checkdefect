@@ -13,14 +13,15 @@ use File;
 
 use App\Complaint;
 use App\User;
+use App\Report;
 
 class AdminController extends Controller
 {
     public function index() {
 
-    	$complaints = Complaint::all();
+    	$reports = Report::all();
 
-    	return view('admin.index', compact('complaints'));
+    	return view('admin.index', compact('reports'));
     }
 
     public function report2($id) {

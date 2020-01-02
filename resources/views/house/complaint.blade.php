@@ -34,6 +34,12 @@
           </th>
         </tr>
         <tr>
+          <th>
+            Deskripsi Kerosakan
+            {{ Form::textarea('notes', old('notes'), ['class' => 'form-control', 'rows' => '1']) }}
+          </th>          
+        </tr>
+        <tr>
     			<th>
             Ruang
             {!! Form::select('area_id', $areas, old('area'),['class' => 'form-control', 'required', 'placeholder' => 'Ruang', 'id' => 'area']) !!}
@@ -50,20 +56,13 @@
             Kerosakan (Ringkas) 
             <select name="defect_id" class="form-control" id="defect_id"><option value="">Pilih Kerosakan</option></select>
           </th>                    
-        </tr>
-        <tr>
-          <th>
-            Deskripsi / Nota Tambahan
-            {{ Form::textarea('notes', old('notes'), ['class' => 'form-control', 'rows' => '4']) }}
-          </th>          
-        </tr>      
+        </tr>     
         
         <tr>
           <td align="right"><a href="#"><button class="btn btn-primary">Rekod Aduan</button></a></td>
         </tr>
       </table>
-      {!! Form::close() !!}
-      
+      {!! Form::close() !!}      
     </div>
     <div class="col-sm-6 card" id="info" style="padding-top: 5px">&nbsp;</div>
 

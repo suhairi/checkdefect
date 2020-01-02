@@ -29,10 +29,8 @@ Route::group(['prefix' => 'users'], function() {
 
 	// House
 	Route::get('/house', 'HouseController@index')->name('house');
-
 	Route::get('/house/create', 'HouseController@create')->name('house.create');
 	Route::post('house/get_by_type', 'HouseController@get_by_type')->name('house.get_by_type');
-
 	Route::post('/house/store', 'HouseController@store')->name('house.store');
 	Route::delete('/house/destroy/{id}', 'HouseController@destroy')->name('house.destroy');
 	Route::get('/house/edit/{id}', 'HouseController@edit')->name('house.edit');

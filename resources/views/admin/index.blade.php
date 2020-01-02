@@ -18,10 +18,10 @@
   <div class="row">
 
     <table class="table">
-      @foreach($complaints as $complaint)
+      @foreach($reports as $report)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td><a href="{{ route('report2', $complaint->user->id) }}">{{ $complaint->user->name }}</a> (click for saving pdf in the server archive.)</td>
+          <td><a href="{{ route('report2', $report->user->id) }}">{{ $report->user->name }}</a> (click for saving pdf in the server archive.)</td>
         </tr>
       @endforeach
     </table>

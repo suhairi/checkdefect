@@ -154,7 +154,6 @@ class ComplaintController extends Controller
         $request->image->move(public_path('/images'), $imageName);
         Session::flash('success', 'Aduan telah berjaya direkod.');
 
-
     	return redirect()->back();
     }
 
