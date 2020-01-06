@@ -32,9 +32,13 @@ class AdminController extends Controller
 
         //Page 2
         $complaints = Complaint::where('id', $id)->get();
-        $user = User::where('id', $id)->first();
 
-        return view('admin.reports.report2', compact('complaints', 'user'));
+        $complaint = $complaints->first();
+        $user = User::where('id', $complaint->user_id)->first();
+
+        // return view('admin.reports.report2', compact('complaints', 'user'));
+
+        return view('admin.reports.report3', compact('user'));
 
         return $id;
     }
