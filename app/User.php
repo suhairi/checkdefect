@@ -42,6 +42,6 @@ class User extends Authenticatable
     }
 
     public function house() {
-        return $this->hasManyThrough('App\House', 'App\User', 'id', 'id');
+        return $this->hasManyThrough('App\House', 'App\User', 'user_id', 'user_id', 'id', 'id');
     }
 }

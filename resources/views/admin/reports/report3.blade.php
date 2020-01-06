@@ -1,7 +1,7 @@
 <html>
 <body>
 
-<table>
+<table align="center" width="100%" border="1">
   <tr>
     <td>
       <table width="100%">
@@ -26,12 +26,12 @@
         <tr>
           <td>Tarikh</td>
           <td>:</td>
-          <td>{{ $user->house->valuation_date }}</td>
+          <td>{{ $tarikh }}</td>
         </tr>
         <tr>
           <td>Aduan Kali Ke</td>
           <td>:</td>
-          <td>1</td>
+          <td>{{ $times }}</td>
         </tr>
         <tr>
           <td colspan="3">
@@ -42,6 +42,15 @@
                 <th>Perkara</th>
                 <th>Aduan Kecacatan</th>
               </tr>
+              @foreach($complaints as $complaint)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $complaint->area->name }}</td>
+                  <td>{{ $complaint->area_detail->name }}</td>
+                  <td>{{ $complaint->defect->name }}</td>
+                </tr>
+
+              @endforeach
             </table>
           </td>
         </tr>

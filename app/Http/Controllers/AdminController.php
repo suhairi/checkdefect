@@ -14,6 +14,7 @@ use File;
 use App\Complaint;
 use App\User;
 use App\Report;
+use App\House;
 
 class AdminController extends Controller
 {
@@ -27,18 +28,26 @@ class AdminController extends Controller
     // SUBMIT PDF
     public function submitPdf($id) {
 
+        // return $id;
+
         // Page 1
         // return view('admin.reports.report1');
 
         //Page 2
-        $complaints = Complaint::where('id', $id)->get();
-
-        $complaint = $complaints->first();
-        $user = User::where('id', $complaint->user_id)->first();
+        $complaints = Complaint::where('report_id', $id)->get();
+        $complaint  = $complaints->first();
+        // return $complaint;
+        $house      = House::where('id', $complaint->house_id)->first();
+        $tarikh     = Carbon::parse($house->valuation_date, 'UTC');
+        $tarikh     = $tarikh->isoFormat('D/M/Y');
+        $user       = User::where('id', $complaint->user_id)->first();
+        $times      = Report::where('user_id', $user->id)->where('sent', 1)->count();
 
         // return view('admin.reports.report2', compact('complaints', 'user'));
 
-        return view('admin.reports.report3', compact('user'));
+        // Report 3
+
+        return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
 
         return $id;
     }
