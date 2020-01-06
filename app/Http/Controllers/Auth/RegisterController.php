@@ -84,8 +84,8 @@ class RegisterController extends Controller
         
         Mail::send('emails.mail', $info, function($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
-            ->subject('checkdefectrumah.com : User Registration');
-            $message->from('admin@checkdefectrumah.com', 'Notification Mail');
+            ->subject('checkdefectrumah: User Registration');
+            $message->from('admin@checkdefectrumah.com', 'User Registered.');
             $message->cc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
         });
 

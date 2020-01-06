@@ -8,6 +8,7 @@ use Auth;
 use Session;
 use Validator;
 use Carbon\Carbon;
+use Mail;
 
 use App\House;
 use App\Area;
@@ -17,6 +18,7 @@ use App\TypeDetail;
 use App\Complaint;
 use App\Defect;
 use App\Report;
+use App\User;
 
 
 
@@ -136,7 +138,8 @@ class ComplaintController extends Controller
                     'user_id'   => $userId,
                     'house_id'  => $request->house_id,
                     'pages'     => 0,
-                    'sent'      => 0
+                    'sent'      => 0,
+                    'status'    => 0
                 ]);
         }
 
@@ -162,6 +165,47 @@ class ComplaintController extends Controller
         $reports = Report::where('user_id', Auth::user()->id)->get();
 
         return view('reports.index', compact('reports'));
+    }
+
+    public function sent($id) {
+
+        $report = Report::findOrFail($id);
+
+        $report->sent = 1;
+        $report->save();
+
+        Session::flash('success', 'Aduan telah berjaya dihantar dan akan diambil tindakan segera.');
+
+
+        // Notification mail of the submitting.
+
+        $no_of_users = User::all()->count();
+        $no_of_users++;
+
+        $to_name    = 'Khairul Azuar';
+        $to_email   = 'kowndkrul@gmail.com';
+        $userName   = Auth::user()->name;
+        $userEmail  = Auth::user()->email;
+        $userPhone  = Auth::user()->phone;
+
+        
+        $info = [
+            'name'      => 'Admin', 
+            'body'      => 'A complaint has been submitted.',
+            'userName'  => $userName,
+            'userEmail'     => $userEmail,
+            'userPhone'     => $userPhone
+        ];
+        
+        Mail::send('emails.complaintsubmit', $info, function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+            ->subject('checkdefectrumah.com : User Registration');
+            $message->from('admin@checkdefectrumah.com', 'Complaint Submitted.');
+            $message->cc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
+        });
+
+
+        return redirect()->back();
     }
 
 

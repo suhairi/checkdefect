@@ -8,7 +8,7 @@ class Report extends Model
 {
     protected $table 		= 'report';
     protected $primaryKey 	= 'id';
-    protected $fillable 	= ['user_id', 'house_id', 'pages', 'sent'];
+    protected $fillable 	= ['user_id', 'house_id', 'pages', 'sent', 'status'];
 
     public $timestamps 		= false;
 

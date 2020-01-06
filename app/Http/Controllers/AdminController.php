@@ -19,10 +19,26 @@ class AdminController extends Controller
 {
     public function index() {
 
-    	$reports = Report::all();
+    	$reports = Report::where('sent', 1)->get();
 
     	return view('admin.index', compact('reports'));
     }
+
+    // SUBMIT PDF
+    public function submitPdf($id) {
+
+        // Page 1
+        // return view('admin.reports.report1');
+
+        //Page 2
+        $complaints = Complaint::where('id', $id)->get();
+        $user = User::where('id', $id)->first();
+
+        return view('admin.reports.report2', compact('complaints', 'user'));
+
+        return $id;
+    }
+
 
     public function report2($id) {
 

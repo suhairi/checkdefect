@@ -19,6 +19,7 @@ class CreateReportTable extends Migration
             $table->integer('house_id');
             $table->integer('pages');
             $table->boolean('sent');
+            $table->boolean('status');
         });
     }
 

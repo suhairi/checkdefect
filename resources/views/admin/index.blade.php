@@ -17,11 +17,17 @@
   <!-- Content Row -->
   <div class="row">
 
-    <table class="table">
+    <table class="table table-striped">
+      <tr>
+        <th>Bil</th>
+        <th>Nama</th>
+        <th>Status</th>
+      </tr>
       @foreach($reports as $report)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td><a href="{{ route('report2', $report->user->id) }}">{{ $report->user->name }}</a> (click for saving pdf in the server archive.)</td>
+          <td>{{ $report->user->name }}</td>
+          <td><a href="{{ route('report2', $report->user->id) }}">Submit PDF</a></td>
         </tr>
       @endforeach
     </table>

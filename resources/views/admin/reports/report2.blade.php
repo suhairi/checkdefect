@@ -27,7 +27,7 @@
 <p>....................</p>
 Name : {{ $complaint->user->name }}<br />
 I/C No : <br />
-Date : <<br />
+Date : <br />
 
 <br />
 <hr />

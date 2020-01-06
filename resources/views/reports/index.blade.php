@@ -31,7 +31,10 @@
           <td><a href="#">{{ $report->house->name }}</a></td>
           <td>
             @if($report->sent == 0)
-              <font color="red">Belum submit</font>
+              <font color="red">
+                Belum submit <br />
+                <a href="{{ route('sent', $report->id) }}">Hantar</a>
+              </font>
             @else
               <font color="green">Sudah submit</font>
             @endif            

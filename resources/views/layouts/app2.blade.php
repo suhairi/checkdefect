@@ -77,7 +77,7 @@
           <a class="nav-link" href="{{ route('files', 3) }}">List Files</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('report3', 3) }}">Report 3</a>
+          <a class="nav-link" href="{{ route('submitPdf', 1) }}">Report 1</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('mail') }}">Mail</a>
