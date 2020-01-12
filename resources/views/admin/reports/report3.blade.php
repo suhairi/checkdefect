@@ -1,7 +1,12 @@
 <html>
+<style>
+  body {
+    padding: 20px;
+  }
+</style>
 <body>
 
-<table align="center" width="100%" border="1">
+<table align="center" width="100%" height="100%" border="1">
   <tr>
     <td>
       <table width="100%">

@@ -10,6 +10,7 @@ use Storage;
 use Auth;
 use Carbon\Carbon;
 use File;
+use Mail;
 
 use App\Complaint;
 use App\User;
@@ -28,28 +29,73 @@ class AdminController extends Controller
     // SUBMIT PDF
     public function submitPdf($id) {
 
-        // return $id;
-
-        // Page 1
-        // return view('admin.reports.report1');
-
-        //Page 2
-        $complaints = Complaint::where('report_id', $id)->get();
+        $complaints = Complaint::where('id', $id)->get();
         $complaint  = $complaints->first();
-        // return $complaint;
         $house      = House::where('id', $complaint->house_id)->first();
-        $tarikh     = Carbon::parse($house->valuation_date, 'UTC');
-        $tarikh     = $tarikh->isoFormat('D/M/Y');
         $user       = User::where('id', $complaint->user_id)->first();
         $times      = Report::where('user_id', $user->id)->where('sent', 1)->count();
 
-        // return view('admin.reports.report2', compact('complaints', 'user'));
+        // Page 1
+        $tarikh     = Carbon::today();
+        $tarikh     = $tarikh->isoFormat('DMY');
+        $fileName1   = $times . '_' . $tarikh . '_report1.pdf';
+
+        $pdf = PDF::loadView('admin.reports.report1',['complaints' => $complaints]);
+
+        // Make Directory First
+        $path = public_path() . '/pdf/' . $user->id;
+        File::makeDirectory($path, $mode = 0777, true, true);
+        $pdf->save($path . '/' . $fileName1);
+
+        //Page 2
+        $tarikh2     = Carbon::parse($house->valuation_date, 'UTC');
+        $tarikh2     = $tarikh2->isoFormat('D/M/Y');        
+        
+
+        $fileName2    = $times . '_' . $tarikh . '_report2.pdf';
+        $pdf = PDF::loadView('admin.reports.report2',['complaint' => $complaint, 'user' => $user, 'tarikh' => $tarikh2, 'times' => $times]);
+        $pdf->save($path . '/' . $fileName2);
 
         // Report 3
+        $fileName3    = $times . '_' . $tarikh . '_report3.pdf';
+        $pdf = PDF::loadView('admin.reports.report3',['user' => $user, 'house' => $house, 'tarikh' => $tarikh, 'times' => $times, 'complaints' => $complaints]);
+        $pdf->save($path . '/' . $fileName3);
 
-        return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
+        /** Update Table Report 'status' = 1 */
+        $report = Report::where('id', $id)->first();
+        $report->status = 1;
+        $report->save();
 
-        return $id;
+        /** Send email attachment **/
+        // Notification email to checkdefectrumah.com admin
+        $userName   = $user->name;
+        $userEmail  = $user->email;
+
+        $to_name = $user->name;
+        $to_email = 'suhairi81@gmail.com';
+        
+        $info = [
+            'name'      => $user->name, 
+            'body'      => 'Report of House Defect <br />Please check the attachment',
+            'userName'  => $userName,
+            'userEmail' => $userEmail,
+        ];
+        
+        Mail::send('emails.report', $info, function($message) use ($to_name, $to_email, $path, $fileName1, $fileName2, $fileName3) {
+            $message->to($to_email, $to_name)
+            ->subject('checkdefectrumah: Reports');
+            $message->from('admin@checkdefectrumah.com', 'Report Sent.');
+            $message->cc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
+            $message->attach($path . '/' . $fileName1, ['as' => 'report1.pdf', 'mime' => 'application/pdf']);
+            $message->attach($path . '/' . $fileName2, ['as' => 'report1.pdf', 'mime' => 'application/pdf']);
+            $message->attach($path . '/' . $fileName3, ['as' => 'report1.pdf', 'mime' => 'application/pdf']);
+        });
+
+        $success = Session::flash('Email has been sent');
+
+
+        return redirect()->back();
+        
     }
 
 

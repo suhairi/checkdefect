@@ -2,13 +2,11 @@
 <body>
 
 <table>
-  @foreach($complaints as $complaint)
     <tr><td><strong>Nama </strong></td><td>:</td><td>{{ $complaint->user->name }}</td></tr>
     <tr><td><strong>I/C No </strong></td><td>:</td><td>&nbsp;</td></tr>
     <tr><td><strong>Contact</strong></td><td>:</td><td>{{ $complaint->user->phone}}</td></tr>
-    <tr><td><strong>House No</strong></td><td>:</td><td>{{ $complaint->house->address }}</td></tr>
-    <tr><td><strong>Date</strong></td><td>:</td><td>{{ $complaint->house->valuation_date }}</td></tr>
-  @endforeach
+    <tr><td><strong>House No</strong></td><td>:</td><td>{{ ucwords($complaint->house->address) }}</td></tr>
+    <tr><td><strong>Date</strong></td><td>:</td><td>{{ $tarikh }}</td></tr>
 </table>
 <br /><br />
 
