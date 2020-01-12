@@ -98,49 +98,6 @@ class AdminController extends Controller
         
     }
 
-
-    public function report2($id) {
-
-    	$complaints = Complaint::where('user_id', $id)->get();
-    	$user = User::where('id', $id)->first();
-    	
-    	$tarikh = Carbon::today();
-    	$tarikh = $tarikh->isoFormat('DMY');
-    	$fileName = $user->id . '_' . $tarikh . '_report2.pdf';
-
-    	$pdf = PDF::loadView('admin.reports.report2',['complaints' => $complaints]);
-
-    	// Make Directory First
-    	$path = public_path() . '/pdf/' . $user->id;
-    	File::makeDirectory($path, $mode = 0777, true, true);
-
-    	$pdf->save($path . '/' . $fileName);
-    	return $pdf->download('reports2.pdf');
-
-    }
-
-    public function report3($id) {
-
-        $complaints = Complaint::where('user_id', $id)->get();
-        $user = User::where('id', $id)->first();
-        
-        $tarikh = Carbon::today();
-        $tarikh = $tarikh->isoFormat('DMY');
-        $fileName = $user->id . '_' . $tarikh . '_report3.pdf';
-
-        return view('admin.reports.report3', compact('complaints', 'user'));
-
-        $pdf = PDF::loadView('admin.reports.report3',['complaints' => $complaints]);
-
-        // Make Directory First then save into the dir.
-        $path = public_path() . '/pdf/' . $user->id;
-        File::makeDirectory($path, $mode = 0777, true, true);
-
-        $pdf->save($path . '/' . $fileName);
-        return $pdf->download('reports3.pdf');
-
-    }
-
     public function users() {
 
     	$users = User::all();
