@@ -35,19 +35,21 @@ class AdminController extends Controller
         $user       = User::where('id', $complaint->user_id)->first();
         $times      = Report::where('user_id', $user->id)->where('sent', 1)->count();
 
-        // Page 1
+        // Report 1
         $tarikh     = Carbon::today();
         $tarikh     = $tarikh->isoFormat('DMY');
         $fileName1   = $times . '_' . $tarikh . '_report1.pdf';
 
-        $pdf = PDF::loadView('admin.reports.report1',['complaints' => $complaints]);
+        $address    = explode(',', $user->address);
+
+        $pdf = PDF::loadView('admin.reports.report1',['complaints' => $complaints, 'address' => $address, 'user' => $user]);
 
         // Make Directory First
         $path = public_path() . '/pdf/' . $user->id;
         File::makeDirectory($path, $mode = 0777, true, true);
         $pdf->save($path . '/' . $fileName1);
 
-        //Page 2
+        // Report 2
         $tarikh2     = Carbon::parse($house->valuation_date, 'UTC');
         $tarikh2     = $tarikh2->isoFormat('D/M/Y');        
         
@@ -80,17 +82,17 @@ class AdminController extends Controller
             'userName'  => $userName,
             'userEmail' => $userEmail,
         ];
-        
+        /**
         Mail::send('emails.report', $info, function($message) use ($to_name, $to_email, $path, $fileName1, $fileName2, $fileName3) {
             $message->to($to_email, $to_name)
-            ->subject('checkdefectrumah: Reports');
+            ->subject('checkdefectrumah: Laporan Kerosakan.');
             $message->from('admin@checkdefectrumah.com', 'Report Sent.');
             $message->cc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
             $message->attach($path . '/' . $fileName1, ['as' => 'report1.pdf', 'mime' => 'application/pdf']);
-            $message->attach($path . '/' . $fileName2, ['as' => 'report1.pdf', 'mime' => 'application/pdf']);
-            $message->attach($path . '/' . $fileName3, ['as' => 'report1.pdf', 'mime' => 'application/pdf']);
+            $message->attach($path . '/' . $fileName2, ['as' => 'report2.pdf', 'mime' => 'application/pdf']);
+            $message->attach($path . '/' . $fileName3, ['as' => 'report3.pdf', 'mime' => 'application/pdf']);
         });
-
+        */
         $success = Session::flash('Email has been sent');
 
 

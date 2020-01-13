@@ -199,7 +199,7 @@ class ComplaintController extends Controller
         
         Mail::send('emails.complaintsubmit', $info, function($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
-            ->subject('checkdefectrumah.com : User Registration');
+            ->subject('checkdefectrumah.com : Complaint Sent');
             $message->from('admin@checkdefectrumah.com', 'Complaint Submitted.');
             $message->cc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
         });

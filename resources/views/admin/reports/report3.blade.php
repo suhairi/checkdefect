@@ -1,22 +1,26 @@
 <html>
 <style>
+  .page-break {
+    page-break-after: always;
+  }
+
   body {
     padding: 20px;
   }
 </style>
-<body>
+<body height="100%">
 
 <table align="center" width="100%" height="100%" border="1">
   <tr>
     <td>
-      <table width="100%">
+      <table width="100%" border="0">
         <tr>
           <td colspan="3"><h3>ADUAN KEROSKAN / KECACATAN RUMAH</h3></td>
         </tr>
         <tr>
-          <td>Nama</td>
+          <td width="18%">Nama</td>
           <td>:</td>
-          <td>{{ $user->name }}</td>
+          <td width="81%">{{ $user->name }}</td>
         </tr>
         <tr>
           <td>No Telefon</td>
@@ -54,7 +58,6 @@
                   <td>{{ $complaint->area_detail->name }}</td>
                   <td>{{ $complaint->defect->name }}</td>
                 </tr>
-
               @endforeach
             </table>
           </td>
@@ -62,6 +65,16 @@
       </table>
       
     </td>
+  </tr>
+</table>
+
+<div class="page-break"></div>
+<h2>Gambar Keroskan</h2>
+
+<table>
+  <tr>
+    <td><img src="{{ public_path() }}" alt=""></td>
+    <td></td>
   </tr>
 </table>
 
