@@ -19,7 +19,7 @@
 
 <p>Kindly, attend to the above house due to the following defect(s) / complaint(s) :-</p>
 
-<p>1. <strong>Please refer to the attached lists (Total no of page 12/12)</strong></p>
+<p>1. <strong>Please refer to the attached lists (Total no of page {{ $pages }}/{{ $pages }})</strong></p>
 
 <br><br><br>
 <p>Please check the house and arrange for the necessary repair(s) / replacement(s) as soon as possible.</p>
@@ -29,7 +29,7 @@
 <p>Sincerely,</p>
 
 <br /><br />
-<p>................................</p>
+<p>..........................................</p>
 Name : {{ $complaint->user->name }}<br />
 I/C No : <br />
 Date : <br />

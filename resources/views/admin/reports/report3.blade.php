@@ -10,6 +10,7 @@
 </style>
 <body height="100%">
 
+<!-- Page 1 -->
 <table align="center" width="100%" height="100%" border="1">
   <tr>
     <td>
@@ -28,8 +29,8 @@
           <td>{{ $user->phone }}</td>
         </tr>
         <tr>
-          <td>Alamat</td>
-          <td>:</td>
+          <td valign="top">Alamat</td>
+          <td valign="top">:</td>
           <td>{{ $user->address }}</td>
         </tr>
         <tr>
@@ -68,13 +69,21 @@
   </tr>
 </table>
 
+<!-- Page 2 -->
 <div class="page-break"></div>
-<h2>Gambar Keroskan</h2>
+<h2>Gambar Kerosakan</h2>
 
-<table>
+<table  width="100%" height="100%" border="1">
   <tr>
-    <td><img src="{{ public_path() }}" alt=""></td>
-    <td></td>
+    <td>
+      <table>
+        @foreach($complaints as $complaint)
+          <tr>
+            <td><img src="{{ url('/images') }}/{{ $complaint->image }}" alt="" height="300" width="300"></td>
+          </tr>
+        @endforeach
+      </table>
+    </td>
   </tr>
 </table>
 

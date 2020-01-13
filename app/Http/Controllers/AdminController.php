@@ -34,15 +34,25 @@ class AdminController extends Controller
         $house      = House::where('id', $complaint->house_id)->first();
         $user       = User::where('id', $complaint->user_id)->first();
         $times      = Report::where('user_id', $user->id)->where('sent', 1)->count();
+        
+        $complaintsImages = $complaints->toArray();
+
+
+        $pages = ceil(count($complaintsImages)/6) + 1;
 
         // Report 1
         $tarikh     = Carbon::today();
         $tarikh     = $tarikh->isoFormat('DMY');
         $fileName1   = $times . '_' . $tarikh . '_report1.pdf';
-
         $address    = explode(',', $user->address);
 
-        $pdf = PDF::loadView('admin.reports.report1',['complaints' => $complaints, 'address' => $address, 'user' => $user]);
+        $pdf = PDF::loadView('admin.reports.report1', [
+            'complaints'        => $complaints, 
+            'address'           => $address, 
+            'user'              => $user, 
+            'pages'             => $pages, 
+            'complaintsImages'  => $complaintsImages
+        ]);
 
         // Make Directory First
         $path = public_path() . '/pdf/' . $user->id;
@@ -55,17 +65,32 @@ class AdminController extends Controller
         
 
         $fileName2    = $times . '_' . $tarikh . '_report2.pdf';
-        $pdf = PDF::loadView('admin.reports.report2',['complaint' => $complaint, 'user' => $user, 'tarikh' => $tarikh2, 'times' => $times]);
+        $pdf = PDF::loadView('admin.reports.report2', [
+            'complaint' => $complaint, 
+            'user'      => $user, 
+            'tarikh'    => $tarikh2, 
+            'times'     => $times,
+            'pages'     => $pages
+        ]);
         $pdf->save($path . '/' . $fileName2);
 
         // Report 3
         $fileName3    = $times . '_' . $tarikh . '_report3.pdf';
-        $pdf = PDF::loadView('admin.reports.report3',['user' => $user, 'house' => $house, 'tarikh' => $tarikh, 'times' => $times, 'complaints' => $complaints]);
+        $pdf = PDF::loadView('admin.reports.report3', [
+            'user'          => $user, 
+            'house'         => $house, 
+            'tarikh'        => $tarikh, 
+            'times'         => $times, 
+            'complaints'    => $complaints
+        ]);
         $pdf->save($path . '/' . $fileName3);
+
+        // return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
 
         /** Update Table Report 'status' = 1 */
         $report = Report::where('id', $id)->first();
         $report->status = 1;
+        $report->pages  = $pages;
         $report->save();
 
         /** Send email attachment **/
@@ -82,6 +107,7 @@ class AdminController extends Controller
             'userName'  => $userName,
             'userEmail' => $userEmail,
         ];
+
         /**
         Mail::send('emails.report', $info, function($message) use ($to_name, $to_email, $path, $fileName1, $fileName2, $fileName3) {
             $message->to($to_email, $to_name)
