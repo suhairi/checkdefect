@@ -26,17 +26,20 @@ class AdminController extends Controller
     	return view('admin.index', compact('reports'));
     }
 
-    // SUBMIT PDF
+    /* ########### */
+    /** SUBMIT PDF */
+    /* ########### */
+
     public function submitPdf($id) {
 
-        $complaints = Complaint::where('id', $id)->get();
+        $report     = Report::findOrFail($id);
+        $complaints = Complaint::where('user_id', $report->user_id)->get();
         $complaint  = $complaints->first();
-        $house      = House::where('id', $complaint->house_id)->first();
-        $user       = User::where('id', $complaint->user_id)->first();
+        $house      = House::where('id', $report->house_id)->first();
+        $user       = User::where('id', $report->user_id)->first();
         $times      = Report::where('user_id', $user->id)->where('sent', 1)->count();
         
         $complaintsImages = $complaints->toArray();
-
 
         $pages = ceil(count($complaintsImages)/6) + 1;
 

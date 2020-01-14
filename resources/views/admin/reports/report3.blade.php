@@ -57,7 +57,14 @@
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $complaint->area->name }}</td>
                   <td>{{ $complaint->area_detail->name }}</td>
-                  <td>{{ $complaint->defect->name }}</td>
+
+                  <?php $defect = '-nil-'; ?>
+                  @if($complaint->defect_id != 0)
+                    <?php $defect = $complaint->defect->name; ?>
+                  @endif
+                 
+                  <td>{{ $defect }}</td>
+
                 </tr>
               @endforeach
             </table>
@@ -79,8 +86,16 @@
       <table>
         @foreach($complaints as $complaint)
           <tr>
+            <td>{{ $loop->iteration }}</td>
             <td><img src="{{ url('/images') }}/{{ $complaint->image }}" alt="" height="300" width="300"></td>
-          </tr>
+          @if($loop->iteration % 2 == 0)
+            </tr>
+            <tr>
+            @if($loop->iteration % 6 == 0)
+              <div class="page-break"></div>
+            @endif
+          @endif
+
         @endforeach
       </table>
     </td>
