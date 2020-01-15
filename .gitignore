@@ -1,10 +1,12 @@
 /node_modules
 /public/hot
 /public/storage
+/public/pdf
 /public/images
 /public/pdf
 /storage/*.key
 /vendor
+checkdefectrumah.zip
 .env
 .env.backup
 .phpunit.result.cache

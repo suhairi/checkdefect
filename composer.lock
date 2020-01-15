@@ -3723,6 +3723,7 @@
         },
         {
             "name": "filp/whoops",
+<<<<<<< HEAD
             "version": "2.7.0",
             "source": {
                 "type": "git",
@@ -3733,6 +3734,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/filp/whoops/zipball/4c97f814aa2f0dd4d5bedc89181c10ef12c004c5",
                 "reference": "4c97f814aa2f0dd4d5bedc89181c10ef12c004c5",
+=======
+            "version": "2.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "fff6f1e4f36be0e0d0b84d66b413d9dcb0c49130"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/fff6f1e4f36be0e0d0b84d66b413d9dcb0c49130",
+                "reference": "fff6f1e4f36be0e0d0b84d66b413d9dcb0c49130",
+>>>>>>> 681520d8f663b2d43de70672bff33fde35ae2e80
                 "shasum": ""
             },
             "require": {
@@ -3780,7 +3793,11 @@
                 "throwable",
                 "whoops"
             ],
+<<<<<<< HEAD
             "time": "2019-12-29T10:00:00+00:00"
+=======
+            "time": "2020-01-15T10:00:00+00:00"
+>>>>>>> 681520d8f663b2d43de70672bff33fde35ae2e80
         },
         {
             "name": "fzaninotto/faker",

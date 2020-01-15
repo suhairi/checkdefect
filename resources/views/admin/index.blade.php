@@ -21,23 +21,27 @@
       <tr>
         <th>Bil</th>
         <th>Nama</th>
-        <th>Status</th>
+        <th>Status <br /><small>*submit bila bayaran telah dibuat</small></th>
       </tr>
       @foreach($reports as $report)
         <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $report->user->name }}</td>
-          <td><a href="{{ route('report2', $report->user->id) }}">Submit PDF</a></td>
+          <td><strong>{{ strtoupper($report->user->name) }}</strong> <br /> {{ strtoupper($report->user->email) }} <br /> {{ $report->user->phone }}</td>
+          <td>
+            <a href="{{ route('submitPdf', $report->id) }}" class="btn btn-primary">Submit PDF</a><br />
+            @if($report->status == 1)
+              <font color="green"><strong><small><sup>*</sup></small> Sudah Submit</strong></font>
+            @else
+              <font color="red"><strong><strong><small><sup>*</sup></small> Belum Submit</strong></font>
+            @endif
+
+          </td>
         </tr>
       @endforeach
     </table>
 
 
   </div>
-
-
-
-
 
 
 @endsection

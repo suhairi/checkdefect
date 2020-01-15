@@ -73,21 +73,8 @@
             <a class="dropdown-item" href="{{ route('aduan') }}">Senarai Aduan</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('files', 3) }}">List Files</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('submitPdf', 1) }}">Report 1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('mail') }}">Mail</a>
-        </li>
         
                
-<!--         <li class="nav-item">
-          <a class="nav-link" href="{{ route('mail') }}">Mail</a>
-        </li> -->
-
       @else
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
@@ -99,7 +86,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aduan</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="{{ route('complaint') }}">Rekod Aduan</a>
+            <a class="dropdown-item" href="{{ route('complaint') }}">Rekod Kerosakan</a>
             <a class="dropdown-item" href="{{ route('listAduan') }}">Senarai Aduan</a>
             <!-- <a class="dropdown-item" href="#">Something else here</a> -->
           </div>

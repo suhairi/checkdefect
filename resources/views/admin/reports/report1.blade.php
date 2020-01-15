@@ -19,28 +19,38 @@
 				</tr>
 				<tr>
 					<td align="center">
-						<h2>NO 17, TAMAN SERI IMPIAN, <br />
-						JALAN KUALA KETIL, <br />
-						08000 SUNGAI PETANI, <br />
-						KEDAH, DARUL AMAN.</h2>
+						<br /><br /><br />
+						<h2>
+							@foreach($address as $add)
+								@if(!$loop->last)
+									{{ strtoupper($add) }},<br />
+								@else
+									{{ strtoupper($add) }}<br />
+								@endif
+							@endforeach
+						</h2>
 						<br /><br /><br /><br />
 					</td>
 				</tr>
 				<tr>
 					<td align="center">
-						<h2>AZRULNIZAM BIN MUKHTAR</h2>
+						<h2>{{ strtoupper($user->name) }}</h2>
 						<br />
 					</td>
 				</tr>
 				<tr>
 					<td align="center">
-						<h2>012 - 5509386</h2>
-						<br /><br /><br /><br /><br />
+						<br /><br />
+						<h2>{{ $user->phone }}</h2>
+						<br /><br /><br /><br />
 					</td>
 				</tr>
 				<tr>
 					<td align="center">
-						<h2>20 FEBRUARI 2019</h2>
+						<br /><br />
+						<h2>{{ Carbon\Carbon::today()->format('d M Y') }}</h2>
+
+						<br />
 					</td>
 				</tr>
 			</table>

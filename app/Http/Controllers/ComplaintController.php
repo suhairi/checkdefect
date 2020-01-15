@@ -51,7 +51,15 @@ class ComplaintController extends Controller
             $listOfComplaints = "<tr><td colspan='3'><font color='red'>Tiada aduan bagi rumah ini.</td></tr>";
         } else {
             foreach($complaints as $complaint) {
-                $listOfComplaints .= "<tr><td>" . $complaint->area->name . "</td><td>" . $complaint->area_detail->name . "</td><td>" . $complaint->defect->name . "</td></tr>";
+
+                $defect = '';
+                if($complaint->defect_id != 0) { 
+                    $defect = $complaint->defect->name;
+                }
+
+                $listOfComplaints .= "<tr><td>" . $complaint->area->name . "</td>
+                                        <td>" . $complaint->area_detail->name . "</td>
+                                        <td>" . strtoupper($defect) . "</td></tr>";
             }
         }
 
@@ -108,8 +116,6 @@ class ComplaintController extends Controller
 
     public function store(Request $request) {
 
-
-
         $date = Carbon::today();
         $date = $date->isoFormat('YMd');
         $userId = Auth::user()->id;
@@ -120,11 +126,12 @@ class ComplaintController extends Controller
             'house_id'      => 'required|integer',
             'area_id'       => 'required|integer',
             'area_detail_id'=> 'required|integer',
-            'defect_id'     => 'required|integer',
+            // 'defect_id'     => 'integer',
             'image'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'          
         ]);
 
-        $imageName  = Auth::user()->id . '_' . $date . '_' . $imageCount . '.' . $request->image->getClientOriginalExtension();
+
+        $imageName  = Auth::user()->id . '_' . $date . '_' . uniqid() . '.' . $request->image->getClientOriginalExtension();
 
         // Store
         $notes = '';
@@ -145,12 +152,17 @@ class ComplaintController extends Controller
                 ]);
         }
 
+        $defect = $request->defect_id;
+
+        if($request->defect_id == null)
+            $defect = 0;
+
         Complaint::create([
             'house_id'          => $request->house_id,
             'user_id'           => Auth::user()->id,
             'area_id'           => $request->area_id,
             'area_detail_id'    => $request->area_detail_id,
-            'defect_id'         => $request->defect_id,
+            'defect_id'         => $defect,
             'report_id'         => $report->id,
             'image'             => $imageName,
             'notes'             => $notes
@@ -218,7 +230,7 @@ class ComplaintController extends Controller
         
         Mail::send('emails.complaintsubmit', $info, function($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
-            ->subject('checkdefectrumah.com : User Registration');
+            ->subject('checkdefectrumah.com : Complaint Sent');
             $message->from('admin@checkdefectrumah.com', 'Complaint Submitted.');
             $message->cc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
         });
