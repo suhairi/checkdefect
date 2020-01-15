@@ -35,7 +35,9 @@ class ComplaintController extends Controller
             return redirect('home');
         }
 
-        return view('house.complaint', compact('houses', 'areas'));
+        $noImage = Complaint::where('user_id', Auth::user()->id)->count() + 1;
+
+        return view('house.complaint', compact('houses', 'areas', 'noImage'));
     }
 
     public function get_house_info(Request $request) {
@@ -176,6 +178,23 @@ class ComplaintController extends Controller
 
         Session::flash('success', 'Aduan telah berjaya dihantar dan akan diambil tindakan segera.');
 
+        $user = User::where('id', Auth::user()->id)->first();
+        
+        // $sms_to     = '6'.$user->phone;
+        $sms_to     = '601162528520';
+        $sms_msg    = "checkdefect.com : Terima kasih. Aduan anda akan diambil tindakan setelah kami menerima bayaran.";
+
+        // return $user;
+
+        // Send SMS Notification
+        // gw_send_sms("APIQ9DNB2E8R7", "APIQ9DNB2E8R7EK783", "Admin", $user->phone, $message);
+        $query_string = "api.aspx?apiusername=APIQ9DNB2E8R7&apipassword=APIQ9DNB2E8R7EK783";
+        $query_string .= "&senderid=onewaysms&mobileno=".rawurlencode($sms_to);
+        $query_string .= "&message=".rawurlencode(stripslashes($sms_msg)) . "&languagetype=1";        
+        $url = "http://gateway.onewaysms.com.my:10001/".$query_string;
+
+        // $fd = @implode ('', file ($url));
+          
 
         // Notification mail of the submitting.
 
@@ -208,5 +227,28 @@ class ComplaintController extends Controller
         return redirect()->back();
     }
 
+    public function gw_send_sms($user,$pass,$sms_from,$sms_to,$sms_msg)  
+    {           
+        $query_string = "api.php?apiusername=".$user."&apipassword=".$pass;
+        $query_string .= "&senderid=".rawurlencode($sms_from)."&mobileno=".rawurlencode($sms_to);
+        $query_string .= "&message=".rawurlencode(stripslashes($sms_msg)) . "&languagetype=1";        
+        $url = "http://gateway.onewaysms.com.my:10001/".$query_string;       
+        $fd = @implode ('', file ($url));      
+        if ($fd) {                       
+            if ($fd > 0) {
+                Print("MT ID : " . $fd);
+                $ok = "success";
+            }        
+            else {
+                print("Please refer to API on Error : " . $fd);
+                $ok = "fail";
+            }
+
+        } else {                       
+            // no contact with gateway                      
+            $ok = "fail";       
+        }           
+        return $ok;  
+    }
 
 }

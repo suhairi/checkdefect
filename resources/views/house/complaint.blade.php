@@ -29,16 +29,17 @@
         </tr>
         <tr>
           <th>
-            Gambar Kerosakan
+            Gambar Kerosakan 
             {{ Form::file('image', ['class' => 'form-control', 'required']) }}
+            ( Gambar {{ $noImage }} )
           </th>
         </tr>
-        <tr>
+<!--         <tr>
           <th>
             Deskripsi Kerosakan
             {{ Form::textarea('notes', old('notes'), ['class' => 'form-control', 'rows' => '1']) }}
           </th>          
-        </tr>
+        </tr> -->
         <tr>
     			<th>
             Ruang
