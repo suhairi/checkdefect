@@ -130,6 +130,10 @@ class ComplaintController extends Controller
             'image'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'          
         ]);
 
+        if(!Session::has('house_id')) {
+            Session::put('house_id', $request->house_id);
+        }
+
 
         $imageName  = Auth::user()->id . '_' . $date . '_' . uniqid() . '.' . $request->image->getClientOriginalExtension();
 
@@ -192,20 +196,21 @@ class ComplaintController extends Controller
 
         $user = User::where('id', Auth::user()->id)->first();
         
+        $api_key    = '9bf3d39d51cdfc326999e0aa0849f5ad';
         // $sms_to     = '6'.$user->phone;
         $sms_to     = '601162528520';
-        $sms_msg    = "checkdefect.com : Terima kasih. Aduan anda akan diambil tindakan setelah kami menerima bayaran.";
+        // $sms_msg    = "TR Rencana Kreatif : Laporan defect " . $report->house->name . " telah siap. Sila buat bayaran bagi proses penghantaran laporan. ";
+        // $sms_msg    .= "Sila rujuk http://bit.ly/paycheckdefect ";
+        $sms_msg    = "Testing 123";    
+        $sms_uniqid = uniqid();
 
-        // return $user;
 
         // Send SMS Notification
-        // gw_send_sms("APIQ9DNB2E8R7", "APIQ9DNB2E8R7EK783", "Admin", $user->phone, $message);
-        $query_string = "api.aspx?apiusername=APIQ9DNB2E8R7&apipassword=APIQ9DNB2E8R7EK783";
-        $query_string .= "&senderid=onewaysms&mobileno=".rawurlencode($sms_to);
-        $query_string .= "&message=".rawurlencode(stripslashes($sms_msg)) . "&languagetype=1";        
-        $url = "http://gateway.onewaysms.com.my:10001/".$query_string;
+        $url = "https://www.sms123.net/api/send.php?apiKey=" . $api_key. "&recipients=" . $sms_to . "&messageContent=" . $sms_msg ."&referenceID=" . $sms_uniqid;
 
-        // $fd = @implode ('', file ($url));
+        $fd = @implode ('', file ($url));
+
+        return $fd;
           
 
         // Notification mail of the submitting.

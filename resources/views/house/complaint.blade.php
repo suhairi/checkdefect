@@ -24,14 +24,14 @@
         <tr>
   				<th>
             Rumah Aduan
-            {!! Form::select('house_id', $houses, null, ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Pilih', 'id' => 'house']) !!}
+            {!! Form::select('house_id', $houses, Session::get('house_id'), ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Pilih', 'id' => 'house']) !!}
           </th>
         </tr>
         <tr>
           <th>
             Gambar Kerosakan 
             {{ Form::file('image', ['class' => 'form-control', 'required']) }}
-            ( Gambar {{ $noImage }} )
+            ( Sticker {{ $noImage }} )
           </th>
         </tr>
 <!--         <tr>

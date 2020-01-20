@@ -23,7 +23,7 @@
   		<table class="table table-striped table-bordered">
         <tr>
   				<th>
-            Nama <br />
+            Rumah Yang Dibaiki <br />
             {!! Form::text('name', old('name'), ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Sila berikan nama kepada rumah ini']) !!}
           </th>
         <tr>

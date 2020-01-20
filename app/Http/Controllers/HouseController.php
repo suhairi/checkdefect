@@ -35,7 +35,7 @@ class HouseController extends Controller
 
     public function get_by_type(Request $request) {
 
-        $details = TypeDetail::where('type_id', $request->value)->get();
+        $details = TypeDetail::where('type_id', 1)->get();
 
         $output = "<option value=''>Pilih Detail Jenis Rumah...</option>";
 
