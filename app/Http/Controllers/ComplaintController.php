@@ -197,16 +197,19 @@ class ComplaintController extends Controller
         $user = User::where('id', Auth::user()->id)->first();
         
         $api_key    = '9bf3d39d51cdfc326999e0aa0849f5ad';
-        // $sms_to     = '6'.$user->phone;
-        $sms_to     = '601162528520';
-        // $sms_msg    = "TR Rencana Kreatif : Laporan defect " . $report->house->name . " telah siap. Sila buat bayaran bagi proses penghantaran laporan. ";
-        // $sms_msg    .= "Sila rujuk http://bit.ly/paycheckdefect ";
-        $sms_msg    = "Testing 123";    
+
+        // BUG HERE
+        // check if the phone no already have 6 at the front
+        $sms_to     = '6'.$user->phone;
+        $sms_msg    = "checkdefectrumah.com: Terima kasih kerana menggunakan sistem ini. Untuk download laporan anda, pohon buat bayaran di http://bit.ly/paycheckdefect";
+        $sms_msg    = urlencode($sms_msg);
         $sms_uniqid = uniqid();
 
 
         // Send SMS Notification
         $url = "https://www.sms123.net/api/send.php?apiKey=" . $api_key. "&recipients=" . $sms_to . "&messageContent=" . $sms_msg ."&referenceID=" . $sms_uniqid;
+
+        // return $url;
 
         $fd = @implode ('', file ($url));
 

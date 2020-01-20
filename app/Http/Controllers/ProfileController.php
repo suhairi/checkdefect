@@ -22,6 +22,9 @@ class ProfileController extends Controller
 
     public function update(Request $request) {
 
+        // BUG HERE
+        // Validate phone number format
+
     	$profile = User::find(Auth::user()->id);
 
     	$profile->address = $request->address;
