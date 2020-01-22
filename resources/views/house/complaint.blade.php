@@ -31,7 +31,8 @@
           <th>
             Gambar Kerosakan 
             {{ Form::file('image', ['class' => 'form-control', 'required']) }}
-            ( Sticker {{ $noImage }} )
+            ( Sila lekatkan 'Sticker Kuning' bernombor --> {{ $noImage }} ) <br />
+            <strong> Contoh : </strong><img src="{{ url('img/contoh.jpeg') }}" height="100" width="100">
           </th>
         </tr>
 <!--         <tr>

@@ -43,7 +43,14 @@ class ComplaintController extends Controller
     public function get_house_info(Request $request) {
 
         $house      = House::where('id', $request->id)->first();
-        $complaints = Complaint::where('user_id', Auth::user()->id)->get();
+        $report     = Report::where('user_id', Auth::user()->id)
+                                ->where('house_id', $request->id)
+                                ->where('sent', 0)
+                                ->where('status', 0)
+                                ->first();
+        
+        if(!empty($report))
+            $complaints = Complaint::where('report_id', $report->id)->get();
 
         $listOfComplaints = '';
 
@@ -211,10 +218,7 @@ class ComplaintController extends Controller
 
         // return $url;
 
-        $fd = @implode ('', file ($url));
-
-        return $fd;
-          
+        $fd = @implode ('', file ($url));      
 
         // Notification mail of the submitting.
 
@@ -230,7 +234,7 @@ class ComplaintController extends Controller
         
         $info = [
             'name'      => 'Admin', 
-            'body'      => 'A complaint has been submitted.',
+            'body'      => 'Your complaint has been submitted.',
             'userName'  => $userName,
             'userEmail'     => $userEmail,
             'userPhone'     => $userPhone
@@ -245,30 +249,6 @@ class ComplaintController extends Controller
 
 
         return redirect()->back();
-    }
-
-    public function gw_send_sms($user,$pass,$sms_from,$sms_to,$sms_msg)  
-    {           
-        $query_string = "api.php?apiusername=".$user."&apipassword=".$pass;
-        $query_string .= "&senderid=".rawurlencode($sms_from)."&mobileno=".rawurlencode($sms_to);
-        $query_string .= "&message=".rawurlencode(stripslashes($sms_msg)) . "&languagetype=1";        
-        $url = "http://gateway.onewaysms.com.my:10001/".$query_string;       
-        $fd = @implode ('', file ($url));      
-        if ($fd) {                       
-            if ($fd > 0) {
-                Print("MT ID : " . $fd);
-                $ok = "success";
-            }        
-            else {
-                print("Please refer to API on Error : " . $fd);
-                $ok = "fail";
-            }
-
-        } else {                       
-            // no contact with gateway                      
-            $ok = "fail";       
-        }           
-        return $ok;  
     }
 
 }
