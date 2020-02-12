@@ -48,14 +48,14 @@ class ComplaintController extends Controller
                                 ->where('sent', 0)
                                 ->where('status', 0)
                                 ->first();
-        
+
         if(!empty($report))
             $complaints = Complaint::where('report_id', $report->id)->get();
 
         $listOfComplaints = '';
 
         if(empty($complaints)) {
-            $listOfComplaints = "<tr><td colspan='3'><font color='red'>Tiada aduan bagi rumah ini.</td></tr>";
+            $listOfComplaints = "<tr><td colspan='3'><font color='red'>Belum ada rekod terkini defect/kecacatan bagi rumah ini.</td></tr>";
         } else {
             foreach($complaints as $complaint) {
 
