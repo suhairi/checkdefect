@@ -108,7 +108,7 @@ class ComplaintController extends Controller
 
     public function get_defect(Request $request) {
 
-        $defects = Defect::where('area_id', $request->id)->get();
+        $defects = Defect::where('area_detail_id', $request->id)->get();
 
         $output = "<option id='defect' value=''>Detail Kerosakan...</option>";
 

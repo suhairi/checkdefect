@@ -12,271 +12,486 @@ class AreaDetailTableSeeder extends Seeder
     public function run()
     {
         
-        // 1
-        for($i=15; $i<=18; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> '15',
-	        	'name'		=> strtoupper('pintu pagar luar')
-	        ]);
-	    }
+        DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Pintu Pagar (Luar)')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Pintu Pagar (Luar)')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Pintu Pagar (Luar)')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Pintu Pagar (Luar)')]);
+
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Pagar Luar')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Pagar Luar')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Pagar Luar')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Pagar Luar')]);
+
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Tembok Luar')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Tembok Luar')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Tembok Luar')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Tembok Luar')]);
+
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Parit Luar Rumah')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Parit Luar Rumah')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Parit Luar Rumah')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Parit Luar Rumah')]);
+
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Longkang Keliling (Perimeter Drain)')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Longkang Keliling (Perimeter Drain)')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Longkang Keliling (Perimeter Drain)')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Longkang Keliling (Perimeter Drain)')]);
+
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Apron (Lantai Antara Dinding Rumah dan Longkang Keliling)')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Apron (Lantai Antara Dinding Rumah dan Longkang Keliling)')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Apron (Lantai Antara Dinding Rumah dan Longkang Keliling)')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Apron (Lantai Antara Dinding Rumah dan Longkang Keliling)')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '27', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '29', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '30', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Dinding')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Dinding')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '27', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '29', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '30', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Lantai')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Lantai')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '27', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '29', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '30', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Siling')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Siling')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Pintu')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Pintu')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Pintu Sliding')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Pintu Sliding')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '27', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '29', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Tingkap')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Tingkap')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '27', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '29', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '30', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Bumbung')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Bumbung')]);
+
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Tiang')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Tiang')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Tiang')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Tiang')]);
+
+		DB::table('area_detail')->insert(['area_id' => '30', 'name' => strtoupper('Tiang')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Tiang')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Tiang')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Tiang')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Tiang')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '27', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '29', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '30', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Suis')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Suis')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '27', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '29', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '30', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Plug')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Plug')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Pili / Paip Air')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Pili / Paip Air')]);
+
+		DB::table('area_detail')->insert(['area_id' => '27', 'name' => strtoupper('Railing Tangga')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Railing Balkoni')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Railing Balkoni')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Railing Balkoni')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Railing Balkoni')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Railing Balkoni')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Railing Balkoni')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Railing Balkoni')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Railing Balkoni')]);
+
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Sinki')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Sinki')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '27', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '29', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '30', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '31', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Elektrikal')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Elektrikal')]);
+
+		DB::table('area_detail')->insert(['area_id' => '1', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '2', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '3', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '4', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '5', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '6', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '7', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '8', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '9', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '10', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '11', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '12', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '13', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '14', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '19', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '20', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '21', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '22', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '23', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '24', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '25', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '26', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '28', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '29', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '32', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '33', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '34', 'name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('area_detail')->insert(['area_id' => '35', 'name' => strtoupper('Kelengkapan Dalaman')]);
+
+		DB::table('area_detail')->insert(['area_id' => '15', 'name' => strtoupper('Halaman / Tanah')]);
+		DB::table('area_detail')->insert(['area_id' => '16', 'name' => strtoupper('Halaman / Tanah')]);
+		DB::table('area_detail')->insert(['area_id' => '17', 'name' => strtoupper('Halaman / Tanah')]);
+		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Halaman / Tanah')]);
 
 
-        // 2 
-        for($i=15; $i<=18; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> '15',
-	        	'name'		=> strtoupper('pagar luar')
-	        ]);
-	    }
-
-        // 3
-        for($i=15; $i<=18; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> '15',
-	        	'name'		=> strtoupper('tembok luar')
-	        ]);
-	    }
-
-        // 4
-        for($i=15; $i<=18; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> '15',
-	        	'name'		=> strtoupper('parit luar rumah')
-	        ]);
-	    }
-
-        // 5
-        for($i=15; $i<=18; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> '15',
-	        	'name'		=> strtoupper('longkang keliling (perimeter drain)')
-	        ]);
-	    }
-
-        // 6
-        for($i=15; $i<=18; $i++) {
-			DB::table('area_detail')->insert([
-	        	'area_id'	=> '15',
-	        	'name'		=> strtoupper('apron (lantai antara dinding dan longkang')
-	        ]);
-		}
-
-        // 7
-
-        for($i=1; $i<=35; $i++) {
-        	DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('dinding')
-	        ]);        	
-        }
-        
-        // 8
-        for($i=1; $i<=35; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('lantai')
-	        ]);
-	    }
-
-	    //9
-	    for($i=1; $i<=35; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('siling')
-	        ]);
-	    }
-
-	    // 10
-	    for($i=1; $i<=26; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('pintu')
-	        ]);
-	    }
-
-	    DB::table('area_detail')->insert([
-        	'area_id'	=> '28',
-        	'name'		=> strtoupper('pintu')
-        ]);
-
-        for($i=31; $i<=35; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('pintu')
-	        ]);
-	    }
-
-        // 11
-        for($i=1; $i<=26; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('pintu sliding')
-	        ]);
-	    }
-
-	    DB::table('area_detail')->insert([
-        	'area_id'	=> '28',
-        	'name'		=> strtoupper('pintu sliding')
-        ]);
-
-	    for($i=30; $i<=35; $i++) {
-		    DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('pintu sliding')
-	        ]);
-		}
-
-        // 12
-        for($i=1; $i<=35; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('tingkap')
-	        ]);
-	    }
-
-        // 13
-        for($i=1; $i<=35; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('bumbung')
-	        ]);
-	    }
-
-        // 14
-        for($i=15; $i<=18; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('tiang')
-	        ]);
-	    }
-
-        for($i=31; $i<=34; $i++) {
-        	DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('tiang')
-	        ]);
-        }
-
-        // 15
-        for($i=1; $i<=35; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('suis')
-	        ]);
-	    }
 
 
-        // 16
-	    for($i=1; $i<=35; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('plug')
-	        ]);
-	    }
 
-	    //17
-	    for($i=1; $i<=6; $i++) {
-	    	DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('pili/paip air')
-	        ]);
-	    }
 
-	    DB::table('area_detail')->insert([
-        	'area_id'	=> '13',
-        	'name'		=> strtoupper('plug')
-        ]);
 
-	    for($i=15; $i<=21; $i++) {
-	    	DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('plug')
-	        ]);
-	    }
 
-		for($i=24; $i<=26; $i++) {
-	    	DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('plug')
-	        ]);
-	    }
 
-	    // 18
-	    DB::table('area_detail')->insert([
-        	'area_id'	=> '27',
-        	'name'		=> strtoupper('tangga')
-        ]);
-
-        // 19
-        for($i=1; $i<=7; $i++) {
-        	DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('tangga')
-	        ]);
-        }
-
-        for($i=32; $i<=43; $i++) {
-        	DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('tangga')
-	        ]);
-        }
-
-	    //20
-	    for($i=1; $i<=6; $i++) {
-        	DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('sinki')
-	        ]);
-        }
-
-        for($i=13; $i<=14; $i++) {
-        	DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('sinki')
-	        ]);
-        }
-
-        for($i=19; $i<=26; $i++) {
-        	DB::table('area_detail')->insert([
-	        	'area_id'	=> '27',
-	        	'name'		=> strtoupper('sinki')
-	        ]);
-        }
-
-        //21
-        for($i=1; $i<=35; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('elektrikal')
-	        ]);
-	    }
-
-	    // 22
-	    for($i=1; $i<=14; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('kelengkapan dalaman')
-	        ]);
-	    }
-
-	    for($i=19; $i<=35; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('kelengkapan dalaman')
-	        ]);
-	    }
-
-	    // 23
-	    for($i=15; $i<=18; $i++) {
-	        DB::table('area_detail')->insert([
-	        	'area_id'	=> $i,
-	        	'name'		=> strtoupper('halaman/tanah')
-	        ]);
-	    }
-
-        
-    
 
     }
 }

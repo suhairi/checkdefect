@@ -15,7 +15,7 @@ class CreateDefectTable extends Migration
     {
         Schema::create('defect', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('area_id');
+            $table->integer('area_detail_id');
             $table->string('name');
             $table->string('description')->nullable();
         });
