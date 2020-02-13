@@ -28,7 +28,7 @@
           </small>
         </th>
       </tr>
-      @foreach($reports as $report)
+      @forelse($reports as $report)
         <tr>
           <td>{{ $loop->iteration }}</td>
           <td><strong>{{ strtoupper($report->user->name) }}</strong> <br /> {{ strtoupper($report->user->email) }} <br /> {{ $report->user->phone }}</td>
@@ -42,7 +42,9 @@
 
           </td>
         </tr>
-      @endforeach
+      @empty
+        <tr><td colspan=3><font color="red"><i><small>Tiada Aduan.</small></i></font></td></tr>
+      @endforelse
     </table>
 
 
