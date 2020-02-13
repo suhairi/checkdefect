@@ -21,7 +21,7 @@ class AdminController extends Controller
 {
     public function index() {
 
-    	$reports = Report::where('sent', 1)->get();
+    	$reports = Report::where('sent', 0)->get();
 
     	return view('admin.index', compact('reports'));
     }
@@ -111,7 +111,7 @@ class AdminController extends Controller
             'userEmail' => $userEmail,
         ];
 
-        /**
+        
         Mail::send('emails.report', $info, function($message) use ($to_name, $to_email, $path, $fileName1, $fileName2, $fileName3) {
             $message->to($to_email, $to_name)
             ->subject('checkdefectrumah: Laporan Kerosakan.');
@@ -121,7 +121,7 @@ class AdminController extends Controller
             $message->attach($path . '/' . $fileName2, ['as' => 'report2.pdf', 'mime' => 'application/pdf']);
             $message->attach($path . '/' . $fileName3, ['as' => 'report3.pdf', 'mime' => 'application/pdf']);
         });
-        */
+        
         $success = Session::flash('Email has been sent');
 
 

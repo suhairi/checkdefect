@@ -485,8 +485,31 @@ class AreaDetailTableSeeder extends Seeder
 		DB::table('area_detail')->insert(['area_id' => '18', 'name' => strtoupper('Halaman / Tanah')]);
 
 
+		// RUANG DETAIL SEEDER
 
-
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Pintu Pagar (Luar)')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Pagar Luar')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Tembok Luar')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Parit Luar Rumah')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Longkang Keliling (Perimeter Drain)')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Apron  (Lantai Antara Dinding Rumah dan Longkang Keliling)')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Dinding')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Lantai')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Siling')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Pintu')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Pintu Sliding')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Tingkap')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Bumbung')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Tiang')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Suis')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Plug')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Pili / Paip Air')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Railing Tangga')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Railing Balkoni')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Sinki')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Elektrikal')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Kelengkapan Dalaman')]);
+		DB::table('ruang_detail')->insert(['name' => strtoupper('Halaman / Tanah')]);
 
 
 

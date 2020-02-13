@@ -114,7 +114,7 @@
 
           $('#area_detail').change(function() {
 
-            var id = $('#area').val();
+            var id = $('#area_detail').val();
             // alert(id);
             var _token = $("input[name='_token']").val();
 

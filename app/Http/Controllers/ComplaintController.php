@@ -19,6 +19,7 @@ use App\Complaint;
 use App\Defect;
 use App\Report;
 use App\User;
+use App\RuangDetail;
 
 
 
@@ -99,7 +100,7 @@ class ComplaintController extends Controller
         $output = "<option id='area_detail' value=''>Detail Ruang...</option>";
 
         foreach($area_details as $details) {
-            $output .= "<option value='". $details->id ."'>". $details->name ."</option>";
+            $output .= "<option value='". $details->id ."'>". $details->name . "</option>";
         }
 
 
@@ -108,12 +109,16 @@ class ComplaintController extends Controller
 
     public function get_defect(Request $request) {
 
-        $defects = Defect::where('area_detail_id', $request->id)->get();
+        $area_detail    = AreaDetail::where('id', $request->id)->first();
+        $ruang_detail   = RuangDetail::where('name', $area_detail->name)->first();
+
+        $defects = Defect::where('area_detail_id', $ruang_detail->id)->get();
 
         $output = "<option id='defect' value=''>Detail Kerosakan...</option>";
+        // $output .= "<option>". $ruang_detail->id . " - " . "</option>";
 
         foreach($defects as $defect) {
-            $output .= "<option value='". $defect->id ."'>". $defect->name ."</option>";
+            $output .= "<option value='". $defect->id ."'>". $defect->name . "</option>";
         }
 
 

@@ -21,7 +21,12 @@
       <tr>
         <th>Bil</th>
         <th>Nama</th>
-        <th>Status <br /><small>*submit bila bayaran telah dibuat</small></th>
+        <th>Status <br />
+          <small>
+            *submit bila bayaran telah dibuat <br />
+            *jika client tidak menerima email, minta client pastikan alamat email betul
+          </small>
+        </th>
       </tr>
       @foreach($reports as $report)
         <tr>
