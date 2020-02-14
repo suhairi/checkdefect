@@ -207,7 +207,6 @@ class ComplaintController extends Controller
         Session::flash('success', 'Aduan telah berjaya dihantar dan akan diambil tindakan segera.');
 
         $user = User::where('id', Auth::user()->id)->first();
-        
         $api_key    = '9bf3d39d51cdfc326999e0aa0849f5ad';
 
         // BUG HERE
@@ -238,9 +237,9 @@ class ComplaintController extends Controller
 
         
         $info = [
-            'name'      => 'Admin', 
-            'body'      => 'Your complaint has been submitted.',
-            'userName'  => $userName,
+            'name'          => 'Admin', 
+            'body'          => 'Your complaint has been submitted.',
+            'userName'      => $userName,
             'userEmail'     => $userEmail,
             'userPhone'     => $userPhone
         ];

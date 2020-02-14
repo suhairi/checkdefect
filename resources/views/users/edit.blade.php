@@ -30,7 +30,7 @@
   				<td><strong>Alamat Surat Menyurat</strong> <br /><textarea name="address" class="form-control">{{ $profile->address }}</textarea></td>
   			</tr>
   			<tr>
-  				<td><strong>Telefon Bimbit</strong> <br /><input type="text" name="phone" class="form-control" value="{{ $profile->phone }}" /></td>
+  				<td><strong>Telefon Bimbit</strong> <br /><input type="text" name="phone" class="form-control" value="{{ $profile->phone }}" placeholder="0123456789" /></td>
   			</tr>
   			<tr>
   				<td align="right">
