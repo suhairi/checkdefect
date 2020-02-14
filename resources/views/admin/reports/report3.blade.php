@@ -78,29 +78,27 @@
 
 <!-- Page 2 -->
 <div class="page-break"></div>
+<?php $count = 0; ?>
 <h2>Gambar Kerosakan</h2>
 
-<table  width="100%" height="100%" border="1">
-  <tr>
-    <td>
-      <table>
-        @foreach($complaints as $complaint)
-          <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td><img src="{{ url('/images') }}/{{ $complaint->image }}" alt="" height="300" width="300"></td>
-          @if($loop->iteration % 2 == 0)
-            </tr>
-            <tr>
-            @if($loop->iteration % 6 == 0)
-              <div class="page-break"></div>
-            @endif
-          @endif
 
-        @endforeach
-      </table>
-    </td>
-  </tr>
+<table border = "1">
+  @foreach($complaints as $complaint)
+      <tr>
+        <td>{{ $loop->iteration }}</td>
+        <td>
+            <img src="{{ url('/images') }}/{{ $complaint->image }}" alt="" height="150" width="150"> <br />
+            {{ $complaint->area_detail->name }} - {{ $complaint->defect->name }}
+        </td>
+      </tr>
+      @if($loop->iteration % 3 == 0)
+        <div class="page-break"></div>
+        <?php $count = 0; ?>
+      @endif
+
+  @endforeach
 </table>
+
 
 </body>
 </html>

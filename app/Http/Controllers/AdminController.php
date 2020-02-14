@@ -21,7 +21,7 @@ class AdminController extends Controller
 {
     public function index() {
 
-    	$reports = Report::where('sent', 0)->get();
+    	$reports = Report::all();
 
     	return view('admin.index', compact('reports'));
     }
@@ -58,27 +58,29 @@ class AdminController extends Controller
         ]);
 
         // Make Directory First
-        $path = public_path() . '/pdf/' . $user->id;
-        File::makeDirectory($path, $mode = 0777, true, true);
-        $pdf->save($path . '/' . $fileName1);
+        // $path = public_path() . '/pdf/' . $user->id;
+        // File::makeDirectory($path, $mode = 0777, true, true);
+        // $pdf->save($path . '/' . $fileName1);
 
-        // Report 2
+        // // Report 2
         $tarikh2     = Carbon::parse($house->valuation_date, 'UTC');
         $tarikh2     = $tarikh2->isoFormat('D/M/Y');        
         
 
-        $fileName2    = $times . '_' . $tarikh . '_report2.pdf';
-        $pdf = PDF::loadView('admin.reports.report2', [
-            'complaint' => $complaint, 
-            'user'      => $user, 
-            'tarikh'    => $tarikh2, 
-            'times'     => $times,
-            'pages'     => $pages
-        ]);
-        $pdf->save($path . '/' . $fileName2);
+        // $fileName2    = $times . '_' . $tarikh . '_report2.pdf';
+        // $pdf = PDF::loadView('admin.reports.report2', [
+        //     'complaint' => $complaint, 
+        //     'user'      => $user, 
+        //     'tarikh'    => $tarikh2, 
+        //     'times'     => $times,
+        //     'pages'     => $pages
+        // ]);
+        // $pdf->save($path . '/' . $fileName2);
 
         // Report 3
         $fileName3    = $times . '_' . $tarikh . '_report3.pdf';
+
+        return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
         $pdf = PDF::loadView('admin.reports.report3', [
             'user'          => $user, 
             'house'         => $house, 
