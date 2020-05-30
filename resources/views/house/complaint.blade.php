@@ -29,9 +29,9 @@
         </tr>
         <tr>
           <th>
-            Gambar Kerosakan 
+            Gambar Kerosakan (*Nota : Saiz minimum gambar 2MB)
             {{ Form::file('image', ['class' => 'form-control', 'required']) }}
-            ( Sila lekatkan 'Sticker Kuning' bernombor --> {{ $noImage }} ) <br />
+            ( Sila lekatkan sticker mengikut nombor rujukan ini --> {{ $noImage }} ) <br />
             <strong> Contoh : </strong><img src="{{ url('img/contoh.jpeg') }}" height="100" width="100">
           </th>
         </tr>

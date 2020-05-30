@@ -46,7 +46,7 @@
   				</tr>  				
 			@endforelse
   		</table>
-  		<p>Sila klik <a href="{{ route('house.create') }}">sini</a> untuk merekodkan 'kecacatan/defect rumah' </p>
+  		<p>Sila klik <a href="{{ route('complaint') }}">sini</a> untuk merekodkan 'kecacatan/defect rumah' </p>
 
 
 	</div>	
