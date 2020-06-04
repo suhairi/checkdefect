@@ -31,7 +31,7 @@
           <th>
             Gambar Kerosakan (*Nota : Saiz minimum gambar 2MB)
             {{ Form::file('image', ['class' => 'form-control', 'required']) }}
-            ( Sila lekatkan sticker mengikut nombor rujukan ini --> {{ $noImage }} ) <br />
+            ( Sila lekatkan sticker mengikut nombor rujukan ini --> <font color="red" id="sticker"></font> ) <br />
             <strong> Contoh : </strong><img src="{{ url('img/contoh.jpeg') }}" height="100" width="100">
           </th>
         </tr>
@@ -76,6 +76,22 @@
       $(document).ready(function() {
 
           $('#info').hide();
+
+          $('#house').change(function() {
+
+            var id = $(this).val();
+            var _token = $("input[name='_token']").val();
+
+            $.ajax({
+                url:"{{ route('house.get_sticker_info') }}",
+                method:"POST",
+                data:{id:id, _token:_token},
+                success:function(data) {
+                  // console.log(data);
+                  $('#sticker').html(data);                  
+                }
+              })
+          });
 
           $('#house').change(function() {
 

@@ -22,8 +22,6 @@ use App\User;
 use App\RuangDetail;
 
 
-
-
 class ComplaintController extends Controller
 {
     public function complaint() {
@@ -31,14 +29,23 @@ class ComplaintController extends Controller
         $houses = House::where('user_id', Auth::user()->id)->pluck('name', 'id');
         $areas  = Area::pluck('name', 'id');
 
+        return view('house.complaint', compact('houses', 'areas', 'noImage'));
+    }
+
+    public function get_sticker_info(Request $request) {
+
+        $houses = House::where('user_id', Auth::user()->id)->pluck('name', 'id');
+
         if(sizeof($houses) <= 0) {
             Session::flash('failed', 'Tiada maklumat rumah aduan. Sila rekod/kemaskini');
             return redirect('home');
         }
 
-        $noImage = Complaint::where('user_id', Auth::user()->id)->count() + 1;
+        $noImage = Complaint::where('user_id', Auth::user()->id)->where('house_id', $request->id)->count() + 1;
 
-        return view('house.complaint', compact('houses', 'areas', 'noImage'));
+        $output = $noImage;
+
+        return $output;
     }
 
     public function get_house_info(Request $request) {

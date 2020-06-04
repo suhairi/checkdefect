@@ -17,16 +17,16 @@
   <!-- Content Row -->
   <div class="row">
 
+    <small>
+      *submit bila bayaran telah dibuat <br />
+      *jika client tidak menerima email, minta client pastikan alamat email betul
+    </small>
+
     <table class="table table-striped">
       <tr>
         <th>Bil</th>
         <th>Nama</th>
-        <th>Status <br />
-          <small>
-            *submit bila bayaran telah dibuat <br />
-            *jika client tidak menerima email, minta client pastikan alamat email betul
-          </small>
-        </th>
+        <th>Status</th>
       </tr>
       @forelse($reports as $report)
         <tr>
