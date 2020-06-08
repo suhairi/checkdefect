@@ -8,12 +8,12 @@
     padding: 20px;
   }
 </style>
-<body height="100%">
+<body>
 
 <!-- Page 1 -->
-<table align="center" width="100%" height="100%" border="1">
+<table width="100%" border="2" height="100%">
   <tr>
-    <td>
+    <td valign="top">
       <table width="100%" border="0">
         <tr>
           <td colspan="3"><h3>ADUAN KEROSKAN / KECACATAN RUMAH</h3></td>

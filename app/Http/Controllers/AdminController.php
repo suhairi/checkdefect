@@ -43,7 +43,9 @@ class AdminController extends Controller
 
         $pages = ceil(count($complaintsImages)/6) + 1;
 
-        // Report 1
+        // ####################
+        //       Report 1
+        // ####################
         $tarikh     = Carbon::today();
         $tarikh     = $tarikh->isoFormat('DMY');
         $fileName1   = $times . '_' . $tarikh . '_report1.pdf';
@@ -57,12 +59,15 @@ class AdminController extends Controller
             'complaintsImages'  => $complaintsImages
         ]);
 
+
         // Make Directory First
         // $path = public_path() . '/pdf/' . $user->id;
         // File::makeDirectory($path, $mode = 0777, true, true);
         // $pdf->save($path . '/' . $fileName1);
 
-        // // Report 2
+        // ####################
+        //       Report 2
+        // ####################
         $tarikh2     = Carbon::parse($house->valuation_date, 'UTC');
         $tarikh2     = $tarikh2->isoFormat('D/M/Y');        
         
@@ -77,7 +82,9 @@ class AdminController extends Controller
         // ]);
         // $pdf->save($path . '/' . $fileName2);
 
-        // Report 3
+        // ####################
+        //       Report 3
+        // ####################
         $fileName3    = $times . '_' . $tarikh . '_report3.pdf';
 
         return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
@@ -97,6 +104,8 @@ class AdminController extends Controller
         $report->status = 1;
         $report->pages  = $pages;
         $report->save();
+
+        $pdf->download('report 3.pdf');
 
         /** Send email attachment **/
         // Notification email to checkdefectrumah.com admin
