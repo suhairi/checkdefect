@@ -28,6 +28,7 @@ class ComplaintController extends Controller
 
         $houses = House::where('user_id', Auth::user()->id)->pluck('name', 'id');
         $areas  = Area::pluck('name', 'id');
+        
 
         return view('house.complaint', compact('houses', 'areas'));
     }

@@ -13,6 +13,7 @@ class PdfController extends Controller
 
     	$pdf = App::make('dompdf.wrapper');
     	$pdf->loadHTML('<h1>Text</h1>');
+    	
 
     	return $pdf->stream();
 
