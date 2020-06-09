@@ -11,6 +11,77 @@
 <body>
 
 <!-- Page 1 -->
+<table width="90%" align="center" border="2" height="100%">
+  <tr>
+    <td colspan="2" valign="top" align="center">
+      <table border="1" width="90%">
+        <tr>
+          <td colspan="2" align="center"><strong>ADUAN KEROSAKAN / KECACATAN RUMAH</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="10%">Nama</td>
+          <td>{{ $user->name }}</td>          
+        </tr>
+        <tr>
+          <td>No Telefon</td>
+          <td>{{ $user->phone }}</td>
+        </tr>
+        <tr>
+          <td>Alamat</td>
+          <td>{{ $user->address }}</td>
+        </tr>
+        <tr>
+          <td>Tarikh</td>
+          <td>{{ $tarikh }}</td>
+        </tr>
+        <tr>
+          <td>Aduan Kali Ke</td>
+          <td>{{ $times++ }}</td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+          <table width="100%" border="1">
+            <tr>
+              <th>Bil</th>
+              <th>Ruang</th>
+              <th>Perkara</th>
+              <th>Aduan Kecacatan</th>
+            </tr>
+            @foreach($complaints as $complaint)
+              <tr>
+                <td align="center">{{ $loop->iteration }}</td>
+                <td align="center">{{ $complaint->area->name }}</td>
+                <td align="center">{{ $complaint->area_detail->name }}</td>
+
+                <?php $defect = '-nil-'; ?>
+                @if($complaint->defect_id != 0)
+                  <?php $defect = $complaint->defect->name; ?>
+                @endif
+               
+                <td align="center">{{ $defect }}</td>
+
+              </tr>
+            @endforeach
+
+          </table>          
+
+          </td>
+        </tr>
+      </table>
+    </td>
+   </tr>
+</table>
+<div class="page-break"></div>
+
+
+<!-- ############### END PAGE 1 ################### -->
+
 <table width="100%" border="2" height="100%">
   <tr>
     <td valign="top">
