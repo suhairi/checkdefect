@@ -98,7 +98,8 @@ class AdminController extends Controller
             'times'         => $times, 
             'complaints'    => $complaints
         ]);
-        $pdf->save($path . '/' . $fileName3);
+
+        $pdf->stream($path . '/' . $fileName3);
 
         // return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
 
