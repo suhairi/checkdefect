@@ -46,10 +46,10 @@ class AdminController extends Controller
         // ####################
         //       Report 1
         // ####################
-        $tarikh     = Carbon::today();
-        $tarikh     = $tarikh->isoFormat('DMY');
-        $fileName1   = $times . '_' . $tarikh . '_report1.pdf';
-        $address    = explode(',', $user->address);
+        $tarikh             = Carbon::today();
+        $tarikh             = $tarikh->isoFormat('D/M/Y');
+        $fileName1          = $times . '_' . $tarikh . '_report1.pdf';
+        $address            = explode(',', $user->address);
 
         $pdf = PDF::loadView('admin.reports.report1', [
             'complaints'        => $complaints, 
@@ -61,8 +61,8 @@ class AdminController extends Controller
 
 
         // Make Directory First
-        // $path = public_path() . '/pdf/' . $user->id;
-        // File::makeDirectory($path, $mode = 0777, true, true);
+        $path = public_path() . '/pdf/' . $user->id;
+        File::makeDirectory($path, $mode = 0777, true, true);
         // $pdf->save($path . '/' . $fileName1);
 
         // ####################
@@ -82,12 +82,15 @@ class AdminController extends Controller
         // ]);
         // $pdf->save($path . '/' . $fileName2);
 
+
         // ####################
         //       Report 3
         // ####################
-        $fileName3    = $times . '_' . $tarikh . '_report3.pdf';
+        $tarikh3      = Carbon::today();
+        $tarikh3     = $tarikh3->isoFormat('DMY');
+        $fileName3   = $times . '_' . $tarikh3 . '_report3.pdf';
 
-        return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
+        // return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
         $pdf = PDF::loadView('admin.reports.report3', [
             'user'          => $user, 
             'house'         => $house, 
@@ -103,9 +106,9 @@ class AdminController extends Controller
         $report = Report::where('id', $id)->first();
         $report->status = 1;
         $report->pages  = $pages;
-        $report->save();
+        // $report->save();
 
-        $pdf->download('report 3.pdf');
+        return $pdf->download('report 3.pdf');
 
         /** Send email attachment **/
         // Notification email to checkdefectrumah.com admin

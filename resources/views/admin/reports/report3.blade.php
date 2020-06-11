@@ -6,13 +6,17 @@
 
   body {
     padding: 20px;
+    font-family: arial;
   }
 
   table {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
+
 </style>
+
 <body>
 
 <!-- ############################################## -->
@@ -58,19 +62,40 @@
           <td colspan="3">&nbsp;</td>
         </tr>
         <tr>
-          <td colspan="3">
-          <table width="100%" border="1">
-            <tr>
-              <th>Bil</th>
-              <th>Ruang</th>
-              <th>Perkara</th>
-              <th>Aduan Kecacatan</th>
-            </tr>
+          <td colspan="3" align="center">
+          
             @foreach($complaints as $complaint)
+
+              @if($loop->iteration == 1)
+                <table width="100%" border="1">
+                  <tr>
+                    <th>Bil</th>
+                    <th>Ruang</th>
+                    <th>Perkara</th>
+                    <th>Aduan Kecacatan</th>
+                  </tr>
+              @elseif($loop->iteration%4 == 1)
+                    </table>
+                  </td>
+                </tr>
+                    </table>
+                  </td>
+                </tr>
+                
+                </table>
+                <div class="page-break"></div>
+                <table width="90%" align="center" border="2" height="100%">
+                <tr>
+                  <td colspan="3" valign="top" align="center">
+                <table border="0" width="90%">
+                  <tr>
+                    <td>
+                      <table width="100%" border="1">
+              @endif
               <tr>
-                <td align="center">{{ $loop->iteration }}</td>
-                <td align="center">{{ $complaint->area->name }}</td>
-                <td align="center">{{ $complaint->area_detail->name }}</td>
+                <td align="center" width="5%">{{ $loop->iteration }}</td>
+                <td align="center" width="35%">{{ $complaint->area->name }}</td>
+                <td align="center" width="25%">{{ $complaint->area_detail->name }}</td>
 
                 <?php $defect = '-nil-'; ?>
                 @if($complaint->defect_id != 0)
@@ -90,7 +115,6 @@
     </td>
    </tr>
 </table>
-<div class="page-break"></div>
 
 
 <!-- ############################################## -->
