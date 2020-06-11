@@ -7,6 +7,11 @@
   body {
     padding: 20px;
   }
+
+  table {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 </style>
 <body>
 
