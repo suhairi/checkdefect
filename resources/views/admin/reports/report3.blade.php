@@ -1,8 +1,6 @@
 <html>
 <style>
 
-  <link href="{{{ URL::asset('https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css') }}}" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
   @page {
     margin-top: 10px;
     margin-bottom: 100px;
@@ -64,7 +62,7 @@
           <td colspan="3">&nbsp;</td>
         </tr>
         <tr>
-          <td width="100">Nama</td>
+          <td width="100">Nama .....</td>
           <td width="2">:</td>
           <td width="auto">{{ $user->name }}</td>          
         </tr>
@@ -76,7 +74,7 @@
         <tr>
           <td valign="top">Alamat</td>
           <td valign="top">:</td>
-          <td valign="top">{{ $user->address }} sdgs grgfsd  rg sgfverg  ertgfdbe</td>
+          <td valign="top">{{ $user->address }} sgfverg  ertgfdbe</td>
         </tr>
         <tr>
           <td>Tarikh</td>
@@ -139,13 +137,13 @@
 
 <h2>Gambar Kerosakan</h2>
 
-<table width="100%" border="0" align="center">
+<table width="100%" border="0">
   @foreach($complaints as $complaint)
 
     
     @if($loop->iteration == 1)
       <tr>
-        <td valign="top" align="center">
+        <td valign="top" align="center" border="1">
             {{ $complaint->area_detail->name }} - {{ $complaint->defect->name }}<br />
             <img src="{{ url('/images') }}/{{ $complaint->image }}" alt="{{ url('/images') }}/{{ $complaint->image }}" height="150" width="250">
         </td>

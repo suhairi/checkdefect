@@ -41,7 +41,7 @@ class AdminController extends Controller
         
         $complaintsImages = $complaints->toArray();
 
-        $pages = ceil(count($complaintsImages)/6) + 1;
+        $pages = ceil(count($complaintsImages)/6);
 
         // ####################
         //       Report 1
@@ -90,16 +90,18 @@ class AdminController extends Controller
         $tarikh3     = $tarikh3->isoFormat('DMY');
         $fileName3   = $times . '_' . $tarikh3 . '_report3.pdf';
 
+        // return $fileName3;
+
         // return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
         $pdf = PDF::loadView('admin.reports.report3', [
             'user'          => $user, 
             'house'         => $house, 
             'tarikh'        => $tarikh, 
-            'times'         => $times, 
+            'times'         => $times + 1, 
             'complaints'    => $complaints
         ]);
 
-        $pdf->stream($path . '/' . $fileName3);
+        $pdf->download($path . '/' . $fileName3);
 
         // return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
 
@@ -107,7 +109,8 @@ class AdminController extends Controller
         $report = Report::where('id', $id)->first();
         $report->status = 1;
         $report->pages  = $pages;
-        // $report->save();
+        $report->sent   = 1;
+        $report->save();
 
         return $pdf->download('report 3.pdf');
 
