@@ -6,6 +6,8 @@
     margin-bottom: 100px;
     margin-right: 10px;
     margin-left: 10px;
+    padding-top: 10px;
+    padding=left: 20px;
   }
 
   body {
@@ -20,10 +22,10 @@
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 10px;
-    border: 1px solid black;
+    border: 0px solid black;
     table-layout: fixed;
     height: calc(100%-2px);
-    width: 95%;
+    width: 100%;
   }
 
   footer {
@@ -54,7 +56,8 @@
 <!-- ############################################## -->
 
 
-      <table border="0">
+    <div align="center">
+      <table border="0" class="table-main">
         <tr>
           <td colspan="3" align="center"><strong>ADUAN KEROSAKAN / KECACATAN RUMAH</strong></td>
         </tr>
@@ -62,9 +65,9 @@
           <td colspan="3">&nbsp;</td>
         </tr>
         <tr>
-          <td width="100">Nama .....</td>
-          <td width="2">:</td>
-          <td width="auto">{{ $user->name }}</td>          
+          <td width="15%">Nama </td>
+          <td width="2%">:</td>
+          <td width="200">{{ $user->name }}</td>          
         </tr>
         <tr>
           <td>No Telefon</td>
@@ -90,18 +93,19 @@
           <td colspan="3">&nbsp;</td>
         </tr>
       </table>
+    </div>
 
       @foreach($complaints as $complaint)
 
         @if($loop->iteration == 1)
-          <table width="100%" style="border: 1px solid black" border="1">
+          <table width="100%" style="border: 1px solid black" border="1" class="table-main">
             <tr>
               <th width="5%">Bil</th>
               <th width="35%">Ruang</th>
               <th width="25%">Perkara</th>
               <th>Aduan Kecacatan</th>
             </tr>
-        @elseif($loop->iteration % 4 == 1)
+        @elseif($loop->iteration % 18 == 1)
           </table>
 
           <footer><span class="pagenum"></span></footer>
@@ -160,15 +164,6 @@
             {{ $complaint->area_detail->name }} - {{ $complaint->defect->name }}<br />
             <img src="{{ url('/images') }}/{{ $complaint->image }}" alt="{{ url('/images') }}/{{ $complaint->image }}" height="150" width="250">
         </td>
-    @endif
-
-
-    <!-- If page so long -->
-    @if($loop->iteration % 6 == 0 && $loop->iteration != $loop->last)
-      </tr>
-
-      <footer><span class="pagenum"></span></footer>
-      <div class="page-break"></div>
     @endif
 
   @endforeach
