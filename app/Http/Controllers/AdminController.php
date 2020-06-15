@@ -90,8 +90,6 @@ class AdminController extends Controller
         $tarikh3     = $tarikh3->isoFormat('DMY');
         $fileName3   = $times . '_' . $tarikh3 . '_report3.pdf';
 
-        // return $fileName3;
-
         // return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
         $pdf = PDF::loadView('admin.reports.report3', [
             'user'          => $user, 

@@ -12,6 +12,9 @@
 
   body {
     font-family: arial;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 
   .page-break {
@@ -105,7 +108,7 @@
               <th width="25%">Perkara</th>
               <th>Aduan Kecacatan</th>
             </tr>
-        @elseif($loop->iteration % 18 == 1)
+        @elseif($loop->iteration % 22 == 1)
           </table>
 
           <footer><span class="pagenum"></span></footer>
@@ -141,33 +144,46 @@
 
 <h2>Gambar Kerosakan</h2>
 
-<table width="100%" border="0">
+
   @foreach($complaints as $complaint)
 
-    
     @if($loop->iteration == 1)
+      <table width="100%" border="0">
       <tr>
-        <td valign="top" align="center" border="1">
-            {{ $complaint->area_detail->name }} - {{ $complaint->defect->name }}<br />
+        <td valign="top" align="center">
             <img src="{{ url('/images') }}/{{ $complaint->image }}" alt="{{ url('/images') }}/{{ $complaint->image }}" height="150" width="250">
+            <?php $desc1 = $complaint->area_detail->name . " - " . $complaint->defect->name; ?>
         </td>
+
 
     @elseif($loop->iteration % 2 == 0)
         <td valign="top" align="center">
-            {{ $complaint->area_detail->name }} - {{ $complaint->defect->name }}<br />
             <img src="{{ url('/images') }}/{{ $complaint->image }}" alt="{{ url('/images') }}/{{ $complaint->image }}" height="150" width="250">
+            <?php $desc2 = $complaint->area_detail->name . " - " . $complaint->defect->name; ?>
         </td>
       </tr>
+      <tr>
+        <td align="center">{{ $desc1 }}</td>
+        <td align="center">{{ $desc2 }}</td>
+      </tr>
+      <tr>
+        <td colspan="2"><hr /></td>
+      </tr>
+
+      @if($loop->iteration % 8 == 0)
+        <tr><td height="20">&nbsp;</td></tr>
+      @endif
+
     @else
       <tr>
-        <td valign="top" align="center">
-            {{ $complaint->area_detail->name }} - {{ $complaint->defect->name }}<br />
+        <td valign="top" align="center">            
             <img src="{{ url('/images') }}/{{ $complaint->image }}" alt="{{ url('/images') }}/{{ $complaint->image }}" height="150" width="250">
+            <?php $desc1 = $complaint->area_detail->name . " - " . $complaint->defect->name; ?>         
         </td>
     @endif
 
   @endforeach
-</table>
+
 
 
 
