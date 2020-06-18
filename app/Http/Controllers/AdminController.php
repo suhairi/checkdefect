@@ -47,7 +47,7 @@ class AdminController extends Controller
         //       Report 1
         // ####################
         $tarikh             = Carbon::today();
-        $tarikh             = $tarikh->isoFormat('D/M/Y');
+        $tarikh             = $tarikh->isoFormat('DMY');
         $fileName1          = $times . '_' . $tarikh . '_report1.pdf';
         $address            = explode(',', $user->address);
 
@@ -63,7 +63,7 @@ class AdminController extends Controller
         // Make Directory First
         $path = public_path() . '/pdf/' . $user->id;
         File::makeDirectory($path, $mode = 0777, true, true);
-        // $pdf->save($path . '/' . $fileName1);
+        $pdf->save($path . '/' . $fileName1);
 
         // ####################
         //       Report 2
@@ -72,34 +72,34 @@ class AdminController extends Controller
         $tarikh2     = $tarikh2->isoFormat('D/M/Y');        
         
 
-        // $fileName2    = $times . '_' . $tarikh . '_report2.pdf';
-        // $pdf = PDF::loadView('admin.reports.report2', [
-        //     'complaint' => $complaint, 
-        //     'user'      => $user, 
-        //     'tarikh'    => $tarikh2, 
-        //     'times'     => $times,
-        //     'pages'     => $pages
-        // ]);
-        // $pdf->save($path . '/' . $fileName2);
+        $fileName2    = $times . '_' . $tarikh . '_report2.pdf';
+        $pdf = PDF::loadView('admin.reports.report2', [
+            'complaint' => $complaint, 
+            'user'      => $user, 
+            'tarikh'    => $tarikh2, 
+            'times'     => $times,
+            'pages'     => $pages
+        ]);
+        $pdf->save($path . '/' . $fileName2);
 
 
         // ####################
         //       Report 3
         // ####################
         $tarikh3      = Carbon::today();
-        $tarikh3     = $tarikh3->isoFormat('DMY');
-        $fileName3   = $times . '_' . $tarikh3 . '_report3.pdf';
+        $tarikh3     = $tarikh3->isoFormat('D/M/Y');
+        $fileName3   = $times . '_' . $tarikh . '_report3.pdf';
 
         // return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
         $pdf = PDF::loadView('admin.reports.report3', [
             'user'          => $user, 
             'house'         => $house, 
-            'tarikh'        => $tarikh, 
+            'tarikh'        => $tarikh3, 
             'times'         => $times + 1, 
             'complaints'    => $complaints
         ]);
 
-        $pdf->download($path . '/' . $fileName3);
+        $pdf->save($path . '/' . $fileName3);
 
         // return view('admin.reports.report3', compact('user', 'house', 'tarikh', 'times', 'complaints'));
 
@@ -110,7 +110,7 @@ class AdminController extends Controller
         $report->sent   = 1;
         $report->save();
 
-        return $pdf->download('report 3.pdf');
+        // return $pdf->download('report 3.pdf');
 
         /** Send email attachment **/
         // Notification email to checkdefectrumah.com admin
@@ -118,7 +118,7 @@ class AdminController extends Controller
         $userEmail  = $user->email;
 
         $to_name = $user->name;
-        $to_email = 'suhairi81@gmail.com';
+        $to_email = $userEmail;
         
         $info = [
             'name'      => $user->name, 

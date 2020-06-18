@@ -80,7 +80,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="{{ route('profile') }}">Maklumat Diri</a>
-            <a class="dropdown-item" href="{{ route('house') }}">Maklumat Rumah Yang Dinilai Kerosakan</a>
+            <a class="dropdown-item" href="{{ route('house.create') }}">Maklumat Rumah Yang Dinilai Kerosakan</a>
           </div>
         </li>
         <li class="nav-item dropdown">
