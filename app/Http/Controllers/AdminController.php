@@ -21,9 +21,19 @@ class AdminController extends Controller
 {
     public function index() {
 
-    	$reports = Report::all();
+    	$reports   = Report::all();
+
+        // error when user been deleted
 
     	return view('admin.index', compact('reports'));
+
+    }
+
+    public function users() {
+
+        $users = User::all();
+
+        return view('admin.reports.users', compact('users'));
     }
 
     /* ########### */
@@ -143,13 +153,6 @@ class AdminController extends Controller
 
         return redirect()->back();
         
-    }
-
-    public function users() {
-
-    	$users = User::all();
-
-    	return view('admin.reports.users', compact('users'));
     }
 
     public function listFiles($id) {

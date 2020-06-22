@@ -6,7 +6,7 @@
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h4 mb-0 text-gray-800">Merekod Aduan Rumah</h1>
+    <h1 class="h4 mb-0 text-gray-800">Merekod Kecacatan/Defect Rumah</h1>
     <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
   </div>
 
@@ -23,15 +23,16 @@
   		<table class="table table-striped table-bordered">
         <tr>
   				<th>
-            Rumah Aduan
+            Rumah Rujukan
             {!! Form::select('house_id', $houses, Session::get('house_id'), ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Pilih', 'id' => 'house']) !!}
           </th>
         </tr>
         <tr>
           <th>
-            Gambar Kerosakan (*Nota : Saiz minimum gambar 2MB)
+            Gambar Kerosakan (*Nota : Saiz minimum gambar 2MB. <font color="red">Sila ubah setting kamera anda terlebih dahulu.</font>)
             {{ Form::file('image', ['class' => 'form-control', 'required']) }}
-            ( Sila lekatkan sticker mengikut nombor rujukan ini --> <font color="red" id="sticker"></font> ) <br />
+            ( Sila lekatkan/catitkan pelekat mengikut nombor rujukan ini --> 
+            <font color="red" id="sticker">@if (Session::has('imageCount')){{ Session::get('noImage') }} @endif</font> ) <br />
             <strong> Contoh : </strong><img src="{{ url('img/contoh.jpeg') }}" height="100" width="100">
           </th>
         </tr>

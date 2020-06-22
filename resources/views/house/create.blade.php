@@ -23,8 +23,8 @@
   		<table class="table table-striped table-bordered">
         <tr>
   				<th>
-            Rumah Yang Dibaiki <br />
-            {!! Form::text('name', old('name'), ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Sila berikan nama kepada rumah ini']) !!}
+            Nama Rujukan Rumah <br />
+            {!! Form::text('name', old('name'), ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Sila berikan nama rujukan kepada rumah ini. Contoh : Rumah Ali Taman Pelangi']) !!}
           </th>
         <tr>
           <th>

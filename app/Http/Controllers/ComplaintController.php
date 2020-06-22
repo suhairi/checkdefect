@@ -195,6 +195,9 @@ class ComplaintController extends Controller
         $request->image->move(public_path('/images'), $imageName);
         Session::flash('success', 'Aduan telah berjaya direkod.');
 
+        $noImage = Complaint::where('user_id', Auth::user()->id)->where('house_id', $request->id)->count() + 1;
+        Session::put(['noImage' => $noImage]);
+
     	return redirect()->back();
     }
 
@@ -256,7 +259,8 @@ class ComplaintController extends Controller
             $message->to($to_email, $to_name)
             ->subject('checkdefectrumah.com : Complaint Sent');
             $message->from('admin@checkdefectrumah.com', 'Complaint Submitted.');
-            $message->cc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
+            $message->cc('checkdefectrumah.com@gmail.com', 'Admin Check Defect Rumah.');
+            $message->bcc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
         });
 
 

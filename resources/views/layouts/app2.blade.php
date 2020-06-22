@@ -76,17 +76,17 @@
         
                
       @else
-        <li class="nav-item dropdown">
+<!--         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="{{ route('profile') }}">Maklumat Diri</a>
             <a class="dropdown-item" href="{{ route('house.create') }}">Maklumat Rumah Yang Dinilai Kerosakan</a>
           </div>
-        </li>
+        </li> -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Aduan</a>
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rekod</a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="{{ route('house.create') }}">Rekod Rumah Yang Dinilai (baru)</a>
+            <a class="dropdown-item" href="{{ route('house.create') }}">Rekod Rumah Baru Untuk Dinilai</a>
             <a class="dropdown-item" href="{{ route('complaint') }}">Rekod Kecacatan/Defect Rumah</a>
             <a class="dropdown-item" href="{{ route('listAduan') }}">Senarai Kecacatan/Defect Rumah</a>
             <!-- <a class="dropdown-item" href="#">Something else here</a> -->

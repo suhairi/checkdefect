@@ -53,8 +53,9 @@
             @if(!empty($profile) && !empty($house))
               <div class="text-secondary">                
                 <ol>
-                  <li><a href="{{ route('edit', Auth::user()->id) }}">Kemaskini Profil</a></li>
-                  <li><a href="{{ route('house') }}">Rekod Rumah</a></li>
+                  <li>Kemaskini Profil. <a href="{{ route('edit', Auth::user()->id) }}">Klik sini.</a></li>
+                  <!-- <li>Daftar Rumah Baru. <a href="{{ route('house.create') }}">Klik sini.</a></li> -->
+                  <li>Kemaskini Maklumat Rumah. <a href="{{ route('house') }}">Klik sini.</a></li>
                 </ol>
               </div>
               <br />
