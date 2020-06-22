@@ -49,6 +49,7 @@ Route::group(['prefix' => 'users'], function() {
 	// User - Aduan
 	Route::get('/complaint/list', 'ComplaintController@list')->name('listAduan');
 	Route::get('/complaint/sent/{id}', 'ComplaintController@sent')->name('sent');
+	Route::get('/complaint/details/{id}', 'ComplaintController@details')->name('complaint.details');
 
 
 	// PDF

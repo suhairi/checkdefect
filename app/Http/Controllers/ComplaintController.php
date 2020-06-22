@@ -101,6 +101,20 @@ class ComplaintController extends Controller
         return $output;
     }
 
+    public function details(Request $request) {
+
+        $house      = House::where('user_id', Auth::user()->id)->first();
+        $report     = Report::where('user_id', Auth::user()->id)
+                                ->where('house_id', $house->id)
+                                ->first();
+        $times      = Report::where('user_id', Auth::user()->id)->where('sent', 1)->count() + 1;
+
+        $complaints = Complaint::where('report_id', $report->id)->get();
+
+        return view('reports.details', compact('house', 'complaints', 'times', 'report'));
+
+    }
+
     public function get_area_detail(Request $request) {
 
         $area_details = AreaDetail::where('area_id', $request->id)->get();

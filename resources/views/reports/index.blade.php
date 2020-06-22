@@ -6,7 +6,7 @@
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Senarai Kecacatan/Defect Rumah</h1>
+    <h1 class="h3 mb-0 text-gray-800">Senarai Kecacatan/Defect Rumah...</h1>
     <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
   </div>
 
@@ -28,7 +28,7 @@
   			@forelse($reports as $report)
 				<tr>
 					<td>{{ $loop->iteration }}</td>
-          <td><a href="#">{{ $report->house->name }}</a></td>
+          <td>{{ $report->house->name }} <a href="{{ route('complaint.details', $report->id) }}">( Details )</a></td>
           <td>
             @if($report->sent == 0)
               <font color="red">
