@@ -32,7 +32,7 @@
             Gambar Kerosakan (*Nota : Saiz minimum gambar 2MB. <font color="red">Sila ubah setting kamera anda terlebih dahulu.</font>)
             {{ Form::file('image', ['class' => 'form-control', 'required']) }}
             ( Sila lekatkan/catitkan pelekat mengikut nombor rujukan ini --> 
-            <font color="red" id="sticker">@if (Session::has('imageCount')){{ Session::get('noImage') }} @endif</font> ) <br />
+            <font color="red" id="sticker">@if (Session::has('noImage')){{ Session::get('noImage') }} @endif</font> ) <br />
             <strong> Contoh : </strong><img src="{{ url('img/contoh.jpeg') }}" height="100" width="100">
           </th>
         </tr>

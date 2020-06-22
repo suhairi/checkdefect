@@ -195,8 +195,8 @@ class ComplaintController extends Controller
         $request->image->move(public_path('/images'), $imageName);
         Session::flash('success', 'Aduan telah berjaya direkod.');
 
-        $noImage = Complaint::where('user_id', Auth::user()->id)->where('house_id', $request->id)->count() + 1;
-        Session::put(['noImage' => $noImage]);
+        $noImage = Complaint::where('user_id', Auth::user()->id)->where('house_id', $request->house_id)->count() + 1;
+        Session::flash('noImage', $noImage);
 
     	return redirect()->back();
     }

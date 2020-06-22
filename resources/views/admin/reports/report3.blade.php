@@ -120,7 +120,7 @@
         <tr>
           <td align="center" width="5%">{{ $loop->iteration }}</td>
           <td align="center" width="35%">{{ $complaint->area->name }}</td>
-          <td align="center" width="25%">{{ $complaint->area_detail->name }}</td>
+          <td align="center" width="25%">{{ $loop->iteration }} - {{ $complaint->area_detail->name }}</td>
 
           <?php $defect = '-nil-'; ?>
           @if($complaint->defect_id != 0)
