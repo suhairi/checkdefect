@@ -33,7 +33,7 @@
             {{ Form::file('image', ['class' => 'form-control', 'required']) }}
             ( Sila lekatkan/catitkan pelekat mengikut nombor rujukan ini --> 
             <font color="red" id="sticker">@if (Session::has('noImage')){{ Session::get('noImage') }} @endif</font> ) <br />
-            <strong> Contoh : </strong><img src="{{ url('img/contoh.jpeg') }}" height="100" width="100">
+            <strong> Contoh : </strong><a href="{{ url('img/contoh.jpeg') }}"><img src="{{ url('img/contoh.jpeg') }}" height="100" width="100"></a> &nbsp; <a href="{{ url('img/contoh2.jpeg') }}"><img src="{{ url('img/contoh2.jpeg') }}" height="100" width="100"></a> &nbsp;<a href="{{ url('img/contoh3.jpeg') }}"><img src="{{ url('img/contoh3.jpeg') }}" height="100" width="100"></a>
           </th>
         </tr>
 <!--         <tr>
