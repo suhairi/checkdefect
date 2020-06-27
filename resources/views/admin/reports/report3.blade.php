@@ -80,7 +80,7 @@
         <tr>
           <td valign="top">Alamat</td>
           <td valign="top">:</td>
-          <td valign="top">{{ $user->address }} sgfverg  ertgfdbe</td>
+          <td valign="top">{{ $user->address }}</td>
         </tr>
         <tr>
           <td>Tarikh</td>
@@ -90,7 +90,7 @@
         <tr>
           <td>Aduan Kali Ke</td>
           <td>:</td>
-          <td>{{ $times++ }}</td>
+          <td>{{ $times }}</td>
         </tr>
         <tr>
           <td colspan="3">&nbsp;</td>
@@ -152,14 +152,20 @@
       <tr>
         <td valign="top" align="center">
             <img src="{{ url('/images') }}/{{ $complaint->image }}" alt="{{ url('/images') }}/{{ $complaint->image }}" height="150" width="250">
-            <?php $desc1 = $complaint->area_detail->name . " - " . $complaint->defect->name; ?>
+            <?php 
+              $desc1 = $loop->iteration . ' - ';
+              $desc1 .= $complaint->area_detail->name . " - " . $complaint->defect->name;  
+            ?>
         </td>
 
 
     @elseif($loop->iteration % 2 == 0)
         <td valign="top" align="center">
             <img src="{{ url('/images') }}/{{ $complaint->image }}" alt="{{ url('/images') }}/{{ $complaint->image }}" height="150" width="250">
-            <?php $desc2 = $complaint->area_detail->name . " - " . $complaint->defect->name; ?>
+            <?php 
+              $desc2 = $loop->iteration . ' - ';
+              $desc2 .= $complaint->area_detail->name . " - " . $complaint->defect->name; 
+            ?>
         </td>
       </tr>
       <tr>
@@ -178,7 +184,10 @@
       <tr>
         <td valign="top" align="center">            
             <img src="{{ url('/images') }}/{{ $complaint->image }}" alt="{{ url('/images') }}/{{ $complaint->image }}" height="150" width="250">
-            <?php $desc1 = $complaint->area_detail->name . " - " . $complaint->defect->name; ?>         
+            <?php 
+              $desc1 = $loop->iteration . ' - ';
+              $desc1 .= $complaint->area_detail->name . " - " . $complaint->defect->name; 
+            ?>         
         </td>
     @endif
 

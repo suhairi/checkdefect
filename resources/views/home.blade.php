@@ -46,8 +46,8 @@
             
             <!-- if complaint house incomplete -->
             @if(empty($house))
-              <div class="text-danger font-weight-bold">Tiada maklumat 'Rumah Aduan'.</div>
-              <div class="text-secondary">Daftar/Rekod 'Rumah Aduan' di <a href="{{ route('house.create') }}">sini</a></div>
+              <div class="text-danger font-weight-bold">Tiada maklumat 'Rumah Rujukan'.</div>
+              <div class="text-secondary">Daftar/Rekod 'Rumah Rujukan' di <a href="{{ route('house.create') }}">sini</a></div>
             @endif
 
             @if(!empty($profile) && !empty($house))

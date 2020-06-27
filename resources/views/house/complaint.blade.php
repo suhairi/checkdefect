@@ -62,7 +62,7 @@
         </tr>     
         
         <tr>
-          <td align="right"><a href="#"><button class="btn btn-primary">Rekod Aduan</button></a></td>
+          <td align="right"><a href="#" class="submitForm"><button class="btn btn-primary" id="submit">Rekod Aduan</button></a></td>
         </tr>
       </table>
       {!! Form::close() !!}      
@@ -77,6 +77,10 @@
       $(document).ready(function() {
 
           $('#info').hide();
+
+          $('#submit').click(function() {
+            $(this).addClass('disabled', true);
+          });
 
           $('#house').change(function() {
 
