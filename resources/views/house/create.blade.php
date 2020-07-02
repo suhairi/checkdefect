@@ -24,12 +24,12 @@
         <tr>
   				<th>
             Nama Rujukan Rumah <br />
-            {!! Form::text('name', old('name'), ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Sila berikan nama rujukan kepada rumah ini. Contoh : Rumah Ali Taman Pelangi']) !!}
+            {!! Form::text('name', old('name'), ['class' => 'form-control', 'autofocus', 'required', 'placeholder' => 'Contoh : Rumah Ali Taman Pelangi']) !!}
           </th>
         <tr>
           <th>
             Alamat <br />
-            {!! Form::textarea('address', old('address'), ['id' => 'type', 'class' => 'form-control', 'required', 'placeholder' => 'Alamat Rumah Aduan', 'rows' => '4']) !!}
+            {!! Form::textarea('address', old('address'), ['id' => 'type', 'class' => 'form-control', 'required', 'placeholder' => 'Alamat Rumah Rujukan', 'rows' => '4']) !!}
           </th>         
         </tr>
         <tr>

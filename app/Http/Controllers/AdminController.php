@@ -36,6 +36,64 @@ class AdminController extends Controller
         return view('admin.reports.users', compact('users'));
     }
 
+    public function register() {
+
+        return view('admin.register');
+    }
+
+    public function postRegister(Request $request) {
+
+        $this->validate($request, [
+            'fullName'      => 'required|min:3|max:30',
+            'email'         => 'required|email|min:10',
+            'password'      => 'required|min:5',
+            'noPhone'       => 'required|numeric|min:10'
+        ]);
+
+        User::create([
+            'name'          => ucwords($request->fullName),
+            'email'         => $request->email,
+            'password'      => bcrypt($request->password),
+            'phone'         => $request->noPhone
+        ]);
+
+        // Notification mail of the submitting.
+
+        $no_of_users = User::all()->count();
+        $no_of_users++;
+
+        $to_name        = ucwords($request->fullName);
+        $to_email       = $request->email;
+        $userName       = ucwords($request->fullName);
+        $userEmail      = $request->email;
+        $userPhone      = $request->noPhone;
+        $userPassword   = $request->password;
+
+        
+        $info = [
+            'name'          => $userName, 
+            'body'          => 'Pengguna baru.',
+            'userName'      => $userName,
+            'userEmail'     => $userEmail,
+            'userPhone'     => $userPhone,
+            'userPassword'  => $userPassword
+        ];
+        
+        Mail::send('emails.newUser', $info, function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)
+            ->subject('checkdefectrumah.com : Pengguna Baru');
+            $message->from('admin@checkdefectrumah.com', 'Pendaftaran Baru.');
+            $message->cc('checkdefectrumah.com@gmail.com', 'Admin Check Defect Rumah.');
+            $message->bcc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
+        });
+
+        Session::flash('success', 'Pendaftaran pengguna baru berjaya.');
+
+        return redirect()->back();
+
+        
+    }
+
     /* ########### */
     /** SUBMIT PDF */
     /* ########### */

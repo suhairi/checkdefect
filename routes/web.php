@@ -16,7 +16,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes(['reset' => false]);
+Auth::routes(['reset' => false, 'register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -60,6 +60,8 @@ Route::group(['prefix' => 'users'], function() {
 	// Admin
 	Route::get('/aduan', 'AdminController@index')->name('aduan');
 	Route::get('/users', 'AdminController@users')->name('users');
+	Route::get('/register', 'AdminController@register')->name('register');
+	Route::post('/register', 'AdminController@postRegister')->name('postRegister');
 
 	Route::get('/pdf/files/{id}', 'AdminController@listFiles')->name('files');
 

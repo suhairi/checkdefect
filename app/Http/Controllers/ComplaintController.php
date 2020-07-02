@@ -237,7 +237,7 @@ class ComplaintController extends Controller
         // BUG HERE
         // check if the phone no already have 6 at the front
         $sms_to     = '6'.$user->phone;
-        $sms_msg    = "checkdefectrumah.com: Terima kasih kerana menggunakan sistem ini. Untuk download laporan anda, pohon buat bayaran di http://bit.ly/paycheckdefect";
+        $sms_msg    = "checkdefectrumah.com: Terima kasih kerana menggunakan sistem ini.";
         $sms_msg    = urlencode($sms_msg);
         $sms_uniqid = uniqid();
 
