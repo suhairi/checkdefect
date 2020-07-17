@@ -45,7 +45,7 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">Daftar</a>
+                                    &nbsp;
                                 </li>
                             @endif
                         @else

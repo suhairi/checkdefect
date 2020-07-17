@@ -274,7 +274,6 @@ class ComplaintController extends Controller
             ->subject('checkdefectrumah.com : Complaint Sent');
             $message->from('admin@checkdefectrumah.com', 'Complaint Submitted.');
             $message->cc('checkdefectrumah.com@gmail.com', 'Admin Check Defect Rumah.');
-            $message->bcc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
         });
 
 

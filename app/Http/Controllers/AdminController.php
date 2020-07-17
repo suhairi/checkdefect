@@ -84,7 +84,6 @@ class AdminController extends Controller
             ->subject('checkdefectrumah.com : Pengguna Baru');
             $message->from('admin@checkdefectrumah.com', 'Pendaftaran Baru.');
             $message->cc('checkdefectrumah.com@gmail.com', 'Admin Check Defect Rumah.');
-            $message->bcc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
         });
 
         Session::flash('success', 'Pendaftaran pengguna baru berjaya.');
@@ -200,7 +199,6 @@ class AdminController extends Controller
             $message->to($to_email, $to_name)
             ->subject('checkdefectrumah: Laporan Kerosakan.');
             $message->from('admin@checkdefectrumah.com', 'Report Sent.');
-            $message->cc('suhairi81@gmail.com', 'Suhairi Abdul Hamid.');
             $message->attach($path . '/' . $fileName1, ['as' => 'report1.pdf', 'mime' => 'application/pdf']);
             $message->attach($path . '/' . $fileName2, ['as' => 'report2.pdf', 'mime' => 'application/pdf']);
             $message->attach($path . '/' . $fileName3, ['as' => 'report3.pdf', 'mime' => 'application/pdf']);

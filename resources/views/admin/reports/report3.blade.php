@@ -88,11 +88,6 @@
           <td>{{ $tarikh }}</td>
         </tr>
         <tr>
-          <td>Aduan Kali Ke</td>
-          <td>:</td>
-          <td>{{ $times }}</td>
-        </tr>
-        <tr>
           <td colspan="3">&nbsp;</td>
         </tr>
       </table>
